@@ -1,5 +1,6 @@
 package com.allyn.lives.ui;
 
+import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -23,6 +24,7 @@ import com.allyn.lives.fragment.TVFragment;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationBar bottomLayout;
+    private boolean isreome = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +34,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
         toolbar.setTitle("Instant run");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        isreome = getSharedPreferences("config", MODE_PRIVATE).getBoolean("isUserDarkMode", false);
+
+        if (isreome) {
+            setTheme(R.style.AppTheme);
+
+        } else {
+            setTheme(R.style.Mytheme);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -113,14 +115,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_camera) {
             // Handle the camera action
             fragment = MainFragment.newInstance();
+            bottomLayout.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_gallery) {
             fragment = TVFragment.newInstance();
+            bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_slideshow) {
             fragment = TVFragment.newInstance();
+            bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_manage) {
             fragment = MainFragment.newInstance();
+            bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_share) {
-            fragment = TVFragment.newInstance();
+            setDarkTheme(isreome);
+            this.recreate();
+            return true;
         } else if (id == R.id.nav_send) {
             fragment = MainFragment.newInstance();
         }
@@ -133,5 +141,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void setDarkTheme(boolean is) {
+        SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean("isUserDarkMode", !is);
+        editor.commit();
     }
 }
