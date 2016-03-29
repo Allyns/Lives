@@ -20,8 +20,9 @@ import com.allyn.lives.bottontab.BottomBarTab;
 import com.allyn.lives.bottontab.BottomNavigationBar;
 import com.allyn.lives.fragment.MainFragment;
 import com.allyn.lives.fragment.TVFragment;
+import com.allyn.lives.ui.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationBar bottomLayout;
     private boolean isreome = false;
