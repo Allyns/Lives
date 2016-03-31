@@ -68,7 +68,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         bottomLayout.setOnTabListener(new BottomNavigationBar.TabListener() {
             @Override
             public void onSelected(BottomBarTab tab, int position) {
-                Log.i("etong", "tab: " + tab.isSelected());
                 Fragment fragment = null;
                 switch (position) {
                     case 0:
