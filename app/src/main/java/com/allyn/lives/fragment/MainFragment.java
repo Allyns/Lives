@@ -2,7 +2,6 @@ package com.allyn.lives.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import com.allyn.lives.R;
 /**
  * Created by Administrator on 2016/3/22.
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment {
 
     public static MainFragment newInstance() {
         MainFragment fragment = new MainFragment();
