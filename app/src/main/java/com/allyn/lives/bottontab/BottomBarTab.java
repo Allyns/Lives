@@ -16,7 +16,6 @@ public class BottomBarTab extends RelativeLayout {
 
     public int color;
 
-
     public BottomBarTab(Context context) {
         super(context);
         LayoutInflater.from(context).inflate(R.layout.item_bottom_navigation, this, true);
