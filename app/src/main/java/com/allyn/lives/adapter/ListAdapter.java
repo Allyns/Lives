@@ -28,4 +28,5 @@ public class ListAdapter extends RecyclerView.Adapter{
     public int getItemCount() {
         return 0;
     }
+
 }
