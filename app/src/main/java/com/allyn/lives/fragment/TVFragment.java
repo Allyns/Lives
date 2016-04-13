@@ -22,7 +22,6 @@ public class TVFragment extends BaseFragment {
         TVFragment fragment = new TVFragment();
         return fragment;
     }
-
     @Bind(R.id.myView)
     MyView mmyView;
 
