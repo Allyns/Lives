@@ -31,6 +31,7 @@ public class ListAdapter extends RecyclerView.Adapter{
     }
 
 }
+
 //public class QuickAdapter extends BaseQuickAdapter<Status> {
 //    public QuickAdapter(Context context) {
 //        super(context, R.layout.tweet, DataServer.getSampleData(100));
