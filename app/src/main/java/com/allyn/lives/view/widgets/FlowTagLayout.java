@@ -108,12 +108,10 @@ public class FlowTagLayout extends ViewGroup {
             int childWidth = childView.getMeasuredWidth();
             int childHeight = childView.getMeasuredHeight();
 
-            //因为子View可能设置margin，这里要加上margin的距离
             MarginLayoutParams mlp = (MarginLayoutParams) childView.getLayoutParams();
             int realChildWidth = childWidth + mlp.leftMargin + mlp.rightMargin;
             int realChildHeight = childHeight + mlp.topMargin + mlp.bottomMargin;
 
-            //如果当前一行的宽度加上要加入的子view的宽度大于父容器给的宽度，就换行
             if ((lineWidth + realChildWidth) > sizeWidth) {
                 //换行
                 resultWidth = Math.max(lineWidth, realChildWidth);
