@@ -1,5 +1,6 @@
 package com.allyn.lives.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
@@ -28,4 +29,25 @@ public class ListAdapter extends RecyclerView.Adapter{
     public int getItemCount() {
         return 0;
     }
+
 }
+
+//public class QuickAdapter extends BaseQuickAdapter<Status> {
+//    public QuickAdapter(Context context) {
+//        super(context, R.layout.tweet, DataServer.getSampleData(100));
+//    }
+//
+//    public QuickAdapter(Context context, int dataSize) {
+//        super(context, R.layout.tweet, DataServer.getSampleData(dataSize));
+//    }
+//
+//    @Override
+//    protected void convert(BaseViewHolder helper, Status item) {
+//        helper.setText(R.id.tweetName, item.getUserName())
+//                .setText(R.id.tweetText, item.getText())
+//                .setText(R.id.tweetDate, item.getCreatedAt())
+//                .setImageUrl(R.id.tweetAvatar, item.getUserAvatar())
+//                .setVisible(R.id.tweetRT, item.isRetweet())
+//                .linkify(R.id.tweetText);
+//    }
+//}

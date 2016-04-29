@@ -1,17 +1,13 @@
 package com.allyn.lives.ui;
 
 import android.content.SharedPreferences;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -20,8 +16,9 @@ import com.allyn.lives.bottontab.BottomBarTab;
 import com.allyn.lives.bottontab.BottomNavigationBar;
 import com.allyn.lives.fragment.MainFragment;
 import com.allyn.lives.fragment.TVFragment;
+import com.allyn.lives.ui.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationBar bottomLayout;
     private boolean isreome = false;
@@ -67,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bottomLayout.setOnTabListener(new BottomNavigationBar.TabListener() {
             @Override
             public void onSelected(BottomBarTab tab, int position) {
-                Log.i("etong", "tab: " + tab.isSelected());
                 Fragment fragment = null;
                 switch (position) {
                     case 0:

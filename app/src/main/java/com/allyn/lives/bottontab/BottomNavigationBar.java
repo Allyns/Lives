@@ -67,7 +67,6 @@ public class BottomNavigationBar extends LinearLayout {
                 LayoutParams params = (LayoutParams) tab.getLayoutParams();
                 if (i == currentPosition) {
                     params.width = selectedWidth;
-                    //get the initial selected position and set bottomNavigationBar's background color
                     currentColor = tab.color;
                     tab.textView.setVisibility(VISIBLE);
                     tab.imageView.setY(sixDp);
