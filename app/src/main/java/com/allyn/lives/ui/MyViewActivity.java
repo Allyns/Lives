@@ -10,12 +10,14 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MyViewActivity extends AppCompatActivity {
+
     @Bind(R.id.myView)
     MyView mmyView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         ButterKnife.bind(this);
         setContentView(R.layout.activity_my_view);
         mmyView.startAnim(1000);
