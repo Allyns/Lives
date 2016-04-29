@@ -41,16 +41,16 @@ public class LogHelper {
 
     public static void v(String tag, Object... messages) {
         // Only log VERBOSE if build type is DEBUG
-        if (BuildConfig.DEBUG) {
-            log(tag, Log.VERBOSE, null, messages);
-        }
+//        if (BuildConfig.DEBUG) {
+//            log(tag, Log.VERBOSE, null, messages);
+//        }
     }
 
     public static void d(String tag, Object... messages) {
         // Only log DEBUG if build type is DEBUG
-        if (BuildConfig.DEBUG) {
-            log(tag, Log.DEBUG, null, messages);
-        }
+//        if (BuildConfig.DEBUG) {
+//            log(tag, Log.DEBUG, null, messages);
+//        }
     }
 
     public static void i(String tag, Object... messages) {
@@ -92,12 +92,12 @@ public class LogHelper {
             Log.println(level, tag, message);
         }
     }
-    public static final class BuildConfig {
-        public static final boolean DEBUG = Boolean.parseBoolean("true");
+    public final class BuildConfig {
+//        public static final boolean DEBUG = Boolean.parseBoolean("true");
         public static final String APPLICATION_ID = "com.fangbei.market";
         public static final String BUILD_TYPE = "debug";
         public static final String FLAVOR = "ceshi";
-        public static final int VERSION_CODE = 20;
-        public static final String VERSION_NAME = "1.4.6";
+        public static final int VERSION_CODE = 26;
+        public static final String VERSION_NAME = "1.5.2";
     }
 }
