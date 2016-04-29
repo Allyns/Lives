@@ -9,6 +9,9 @@
 后面将会使用到的:
 MVP框架模式
 Rxjava
+音乐播放
+视频播放
+本地音乐
 ......
 
 <img src="https://github.com/Allyns/Lives/blob/master/QQ%E5%9B%BE%E7%89%8720160330163019.jpg" alt="" /><img
