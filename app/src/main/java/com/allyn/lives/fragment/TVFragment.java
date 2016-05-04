@@ -22,10 +22,10 @@ public class TVFragment extends BaseFragment {
         TVFragment fragment = new TVFragment();
         return fragment;
     }
+
     @Bind(R.id.myView)
     MyView mmyView;
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_my_view, container, false);
