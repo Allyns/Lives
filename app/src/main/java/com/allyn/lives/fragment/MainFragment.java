@@ -24,9 +24,4 @@ public class MainFragment extends BaseFragment {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
         return v;
     }
-//    @OnClick(R.id.button)
-//    public void start(View v) {
-//        mmyView.stopAnim();
-//        mmyView.startAnim(4000);
-//    }
 }
