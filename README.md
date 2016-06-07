@@ -13,3 +13,5 @@ Rxjava
 视频播放
 本地音乐
 ......
+
+<img src="https://github.com/Allyns/Lives/blob/master/live.gif" width="320" />
