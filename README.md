@@ -13,8 +13,3 @@ Rxjava
 视频播放
 本地音乐
 ......
-
-<img src="https://github.com/Allyns/Lives/blob/master/QQ%E5%9B%BE%E7%89%8720160330163019.jpg" width="320" />
-<img src="https://github.com/Allyns/Lives/blob/master/QQ%E5%9B%BE%E7%89%8720160330163026.jpg" width="320" />
-<img src="https://github.com/Allyns/Lives/blob/master/QQ%E5%9B%BE%E7%89%8720160330163029.jpg" width="320" />
-<img src="https://github.com/Allyns/Lives/blob/master/QQ%E5%9B%BE%E7%89%8720160330163032.jpg" width="320" />
