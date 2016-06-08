@@ -1,4 +1,4 @@
-package com.allyn.lives.bottontab;
+package com.allyn.lives.view.bottontab;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;

@@ -31,13 +31,13 @@
         android:background="?attr/mainBackground"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <com.allyn.lives.bottontab.BottomNavigationBar
+    <com.allyn.lives.view.bottontab.BottomNavigationBar
         android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_gravity="bottom"
-        app:layout_behavior="com.allyn.lives.bottontab.BottomNavigationBehavior">
+        app:layout_behavior="com.allyn.lives.view.bottontab.BottomNavigationBehavior">
 
-    </com.allyn.lives.bottontab.BottomNavigationBar>
+    </com.allyn.lives.view.bottontab.BottomNavigationBar>
 
 </android.support.design.widget.CoordinatorLayout>

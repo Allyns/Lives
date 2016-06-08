@@ -1,12 +1,12 @@
-package com.allyn.lives.fragment;
+package com.allyn.lives.fragment.video;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.allyn.lives.R;
+import com.allyn.lives.fragment.base.BaseFragment;
 import com.allyn.lives.view.MyView;
 
 import butterknife.Bind;

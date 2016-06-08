@@ -12,10 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.allyn.lives.R;
-import com.allyn.lives.bottontab.BottomBarTab;
-import com.allyn.lives.bottontab.BottomNavigationBar;
-import com.allyn.lives.fragment.MainFragment;
-import com.allyn.lives.fragment.TVFragment;
+import com.allyn.lives.fragment.music.LocalFragment;
+import com.allyn.lives.view.bottontab.BottomBarTab;
+import com.allyn.lives.view.bottontab.BottomNavigationBar;
+import com.allyn.lives.fragment.video.TVFragment;
 import com.allyn.lives.ui.base.BaseActivity;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -49,7 +49,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, MainFragment.newInstance()).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, LocalFragment.newInstance()).commitAllowingStateLoss();
 
         setUpBottomNavigationBar();
     }
@@ -67,19 +67,19 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 Fragment fragment = null;
                 switch (position) {
                     case 0:
-                        fragment = MainFragment.newInstance();
+                        fragment = LocalFragment.newInstance();
                         break;
                     case 1:
                         fragment = TVFragment.newInstance();
                         break;
                     case 2:
-                        fragment = MainFragment.newInstance();
+                        fragment = LocalFragment.newInstance();
                         break;
                     case 3:
                         fragment = TVFragment.newInstance();
                         break;
                     default:
-                        fragment = MainFragment.newInstance();
+                        fragment = LocalFragment.newInstance();
                         break;
                 }
                 getSupportFragmentManager()
@@ -108,7 +108,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            fragment = MainFragment.newInstance();
+            fragment = LocalFragment.newInstance();
             bottomLayout.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_gallery) {
             fragment = TVFragment.newInstance();
@@ -117,14 +117,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             fragment = TVFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_manage) {
-            fragment = MainFragment.newInstance();
+            fragment = LocalFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_share) {
             setDarkTheme(isreome);
             this.recreate();
             return true;
         } else if (id == R.id.nav_send) {
-            fragment = MainFragment.newInstance();
+            fragment = LocalFragment.newInstance();
         }
         getSupportFragmentManager()
                 .beginTransaction()

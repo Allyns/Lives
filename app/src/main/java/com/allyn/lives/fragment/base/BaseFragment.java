@@ -1,4 +1,4 @@
-package com.allyn.lives.fragment;
+package com.allyn.lives.fragment.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

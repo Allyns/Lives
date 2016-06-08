@@ -1,4 +1,4 @@
-package com.allyn.lives;
+package com.allyn.lives.app;
 
 import android.test.mock.MockApplication;
 
@@ -8,9 +8,9 @@ import android.test.mock.MockApplication;
 public class MainApp extends MockApplication{
 
 
-
     @Override
     public void onCreate() {
         super.onCreate();
     }
+
 }

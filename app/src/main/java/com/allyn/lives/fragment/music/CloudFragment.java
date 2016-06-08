@@ -1,4 +1,4 @@
-package com.allyn.lives.fragment;
+package com.allyn.lives.fragment.music;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,14 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.allyn.lives.R;
+import com.allyn.lives.fragment.base.BaseFragment;
 
 /**
- * Created by Administrator on 2016/3/22.
+ * Created by apple on 16/6/8.
  */
-public class MainFragment extends BaseFragment {
+public class CloudFragment extends BaseFragment {
 
-    public static MainFragment newInstance() {
-        MainFragment fragment = new MainFragment();
+    public static CloudFragment newInstance() {
+        CloudFragment fragment = new CloudFragment();
         return fragment;
     }
 
