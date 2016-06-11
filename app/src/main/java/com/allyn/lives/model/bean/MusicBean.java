@@ -22,13 +22,13 @@ public class MusicBean {
     private String fileData;
     private String displayName;
     private String year;
-    private long duration;
-    private int size;
+    private int duration;
+    private long size;
 
     public MusicBean() {
     }
 
-    public MusicBean(int id, String name, String album, String artist, String fileData, String displayName, String year, long duration, int size) {
+    public MusicBean(int id, String name, String album, String artist, String fileData, String displayName, String year, int duration, long size) {
         this.id = id;
         this.name = name;
         this.album = album;
@@ -96,19 +96,19 @@ public class MusicBean {
         this.year = year;
     }
 
-    public long getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(long duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
-    public int getSize() {
+    public long getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(long size) {
         this.size = size;
     }
 }

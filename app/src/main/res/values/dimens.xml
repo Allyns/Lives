@@ -10,4 +10,7 @@
     <dimen name="sixteenDP">16dp</dimen>
     <dimen name="twentyFourDp">24dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="actionbar_height">48dp</dimen>
+    <color name="colorPrimaryLight">#C8E6C9</color>
+
 </resources>

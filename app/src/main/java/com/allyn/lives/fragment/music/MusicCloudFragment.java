@@ -12,10 +12,10 @@ import com.allyn.lives.fragment.base.BaseFragment;
 /**
  * Created by apple on 16/6/8.
  */
-public class LocalFragment extends BaseFragment {
+public class MusicCloudFragment extends BaseFragment {
 
-    public static LocalFragment newInstance() {
-        LocalFragment fragment = new LocalFragment();
+    public static MusicCloudFragment newInstance() {
+        MusicCloudFragment fragment = new MusicCloudFragment();
         return fragment;
     }
 
