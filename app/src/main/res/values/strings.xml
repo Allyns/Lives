@@ -1,7 +1,13 @@
 <resources>
-    <string name="app_name">娱乐</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>|
-    !-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello movies fragment</string>
+    <string name="app_name">聚玩</string>
+    <array name="local_music_tab">
+        <item>单曲</item>
+        <item>专辑</item>
+        <item>歌手</item>
+    </array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_close">Hello blank fragment</string>
+    <string name="navigation_drawer_open">Hello blank fragment</string>
 </resources>

@@ -8,4 +8,33 @@
     <color name="DarkPrimaryDark">#3d3d3d</color>
     <color name="DarkTextTitleColor">#cccccc</color>
     <color name="DarkTextCommomColor">#a7a7a7</color>
+
+    <color name="colorPrimaryLight">#C8E6C9</color>
+
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#727272</color>
+    <color name="divider">#dedede</color>
+
+    <color name="white_e">#eee</color>
+    <color name="white_f">#ffffff</color>
+    <color name="white_f1">#f1f1f1</color>
+
+    <color name="search_layover_bg">#50000000</color>
+    <color name="gray">#555A5C</color>
+    <color name="croci">#EFAA4E</color>
+
+    <item name="blue" type="color">#FF33B5E5</item>
+    <item name="tiffany_blue" type="color">#FF00C9B0</item>
+    <item name="persian_green" type="color">#FF00A792</item>
+    <item name="athens_gray" type="color">#FFE0E0E0</item>
+    <item name="french_gray" type="color">#FFBDBDBD</item>
+    <item name="white" type="color">#FFFAFAFA</item>
+    <item name="transparent" type="color">#00FFFFFF</item>
+    <item name="black" type="color">#FF212121</item>
+    <item name="black_0" type="color">#000000</item>
+
+    <color name="btn_press_color">#48BDFE</color>
+
+    <color name="btn_press_color_red_dd">#DD4f43</color>
+    <color name="btn_press_color_red_e2">#E28271</color>
 </resources>
