@@ -1,4 +1,4 @@
-package com.allyn.lives.fragment.music;
+package com.allyn.lives.fragment.music.cloud;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

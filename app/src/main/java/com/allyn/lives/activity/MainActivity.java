@@ -1,4 +1,4 @@
-package com.allyn.lives.ui;
+package com.allyn.lives.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,7 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.allyn.lives.R;
-import com.allyn.lives.fragment.music.MusicLocalListFragment;
+import com.allyn.lives.app.MainApp;
+import com.allyn.lives.fragment.music.local.MusicLocalFragment;
 import com.allyn.lives.view.bottontab.BottomBarTab;
 import com.allyn.lives.view.bottontab.BottomNavigationBar;
 import com.allyn.lives.fragment.video.TVFragment;
@@ -49,36 +50,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, MusicLocalListFragment.newInstance()).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, MusicLocalFragment.newInstance()).commitAllowingStateLoss();
 
         setUpBottomNavigationBar();
     }
 
     public void setUpBottomNavigationBar() {
         bottomLayout = (BottomNavigationBar) findViewById(R.id.bottomLayout);
-        bottomLayout.addTab(R.mipmap.ic_launcher, "本地", 0xff4a5965);
-        bottomLayout.addTab(R.mipmap.ic_launcher, "云音乐", 0xff096c54);
-        bottomLayout.addTab(R.mipmap.ic_launcher, "喜欢", 0xff8a6a64);
-        bottomLayout.addTab(R.mipmap.ic_launcher, "下载管理", 0xff553b36);
+        bottomLayout.addTab(R.mipmap.ic_news_selected, "本地", MainApp.getContexts().getResources().getColor(R.color.colorPrimary));
+        bottomLayout.addTab(R.mipmap.ic_music_selected, "云音乐", MainApp.getContexts().getResources().getColor(R.color.persian_green));
+        bottomLayout.addTab(R.mipmap.ic_favorite_white_48dp, "喜欢", MainApp.getContexts().getResources().getColor(R.color.btn_press_color_red_dd));
+        bottomLayout.addTab(R.mipmap.ic_book_selected, "下载管理", MainApp.getContexts().getResources().getColor(R.color.croci));
         bottomLayout.setOnTabListener(new BottomNavigationBar.TabListener() {
             @Override
             public void onSelected(BottomBarTab tab, int position) {
                 Fragment fragment = null;
                 switch (position) {
                     case 0:
-                        fragment = MusicLocalListFragment.newInstance();
+                        fragment = MusicLocalFragment.newInstance();
+                        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                        drawer.closeDrawer(GravityCompat.START);
                         break;
                     case 1:
                         fragment = TVFragment.newInstance();
                         break;
                     case 2:
-                        fragment = MusicLocalListFragment.newInstance();
+                        fragment = MusicLocalFragment.newInstance();
                         break;
                     case 3:
                         fragment = TVFragment.newInstance();
                         break;
                     default:
-                        fragment = MusicLocalListFragment.newInstance();
+                        fragment = MusicLocalFragment.newInstance();
                         break;
                 }
                 getSupportFragmentManager()
@@ -107,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            fragment = MusicLocalListFragment.newInstance();
+            fragment = MusicLocalFragment.newInstance();
             bottomLayout.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_gallery) {
             fragment = TVFragment.newInstance();
@@ -116,14 +119,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = TVFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_manage) {
-            fragment = MusicLocalListFragment.newInstance();
+            fragment = MusicLocalFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_share) {
             setDarkTheme(isreome);
             this.recreate();
             return true;
         } else if (id == R.id.nav_send) {
-            fragment = MusicLocalListFragment.newInstance();
+            fragment = MusicLocalFragment.newInstance();
         }
         getSupportFragmentManager()
                 .beginTransaction()

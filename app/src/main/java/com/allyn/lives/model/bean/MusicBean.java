@@ -24,11 +24,12 @@ public class MusicBean {
     private String year;
     private int duration;
     private long size;
+    private String imageurl;
 
     public MusicBean() {
     }
 
-    public MusicBean(int id, String name, String album, String artist, String fileData, String displayName, String year, int duration, long size) {
+    public MusicBean(int id, String name, String album, String artist, String fileData, String displayName, String year, int duration, long size, String imageurl) {
         this.id = id;
         this.name = name;
         this.album = album;
@@ -38,6 +39,15 @@ public class MusicBean {
         this.year = year;
         this.duration = duration;
         this.size = size;
+        this.imageurl = imageurl;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
     public int getId() {
