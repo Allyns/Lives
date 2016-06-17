@@ -1,10 +1,12 @@
 package com.allyn.lives.holder;
 
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.allyn.lives.R;
 import com.allyn.lives.model.bean.MusicBean;
+import com.bumptech.glide.Glide;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 import butterknife.Bind;
@@ -19,6 +21,8 @@ public class MusicLocalHolder extends BaseViewHolder<MusicBean> {
     TextView mName;
     @Bind(R.id.local_music_msg)
     TextView mMsg;
+    @Bind(R.id.local_music_img)
+    ImageView mImg;
 
     public MusicLocalHolder(ViewGroup viewParent) {
         super(viewParent, R.layout.item_local_music);

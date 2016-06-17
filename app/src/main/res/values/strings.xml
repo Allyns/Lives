@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">聚玩</string>
     <array name="local_music_tab">
-        <item>单曲</item>
-        <item>专辑</item>
-        <item>歌手</item>
+        <item>音乐</item>
+        <item>我喜欢</item>
     </array>
 
     <!-- TODO: Remove or change this placeholder text -->

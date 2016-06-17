@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void setUpBottomNavigationBar() {
         bottomLayout = (BottomNavigationBar) findViewById(R.id.bottomLayout);
-        bottomLayout.addTab(R.mipmap.ic_news_selected, "本地", MainApp.getContexts().getResources().getColor(R.color.colorPrimary));
+        bottomLayout.addTab(R.mipmap.ic_music_selected, "本地", MainApp.getContexts().getResources().getColor(R.color.colorPrimary));
         bottomLayout.addTab(R.mipmap.ic_music_selected, "云音乐", MainApp.getContexts().getResources().getColor(R.color.persian_green));
         bottomLayout.addTab(R.mipmap.ic_favorite_white, "喜欢", MainApp.getContexts().getResources().getColor(R.color.btn_press_color_red_dd));
         bottomLayout.addTab(R.mipmap.ic_book_selected, "下载管理", MainApp.getContexts().getResources().getColor(R.color.croci));
@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .commitAllowingStateLoss();
             }
         });
+        bottomLayout.setVisibility(View.GONE);
     }
 
     @Override
@@ -111,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_camera) {
             fragment = MusicLocalFragment.newInstance();
-            bottomLayout.setVisibility(View.VISIBLE);
+            bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_gallery) {
             fragment = TVFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);

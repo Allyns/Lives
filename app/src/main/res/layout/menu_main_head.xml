@@ -10,7 +10,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_margin="20dp"
-        android:src="@mipmap/allyn" />
+        android:src="@mipmap/phone" />
 
     <TextView
         android:id="@+id/textView2"
