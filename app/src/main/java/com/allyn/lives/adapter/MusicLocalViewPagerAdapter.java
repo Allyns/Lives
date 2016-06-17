@@ -6,9 +6,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.allyn.lives.R;
 import com.allyn.lives.app.MainApp;
-import com.allyn.lives.fragment.music.local.MusicLocalAlbumFragment;
+import com.allyn.lives.fragment.music.local.MusicLocalLikeFragment;
 import com.allyn.lives.fragment.music.local.MusicLocalListFragment;
-import com.allyn.lives.fragment.music.local.MusicLocalSingerFragment;
 
 /**
  * Created by apple on 16/6/11.
@@ -30,11 +29,11 @@ public class MusicLocalViewPagerAdapter extends FragmentPagerAdapter {
                 fragment = MusicLocalListFragment.newInstance();
                 break;
             case 1:
-                fragment = MusicLocalAlbumFragment.newInstance();
+                fragment = MusicLocalLikeFragment.newInstance();
                 break;
-            case 2:
-                fragment = MusicLocalSingerFragment.newInstance();
-                break;
+//            case 2:
+//                fragment = MusicLocalSingerFragment.newInstance();
+//                break;
         }
         return fragment;
 

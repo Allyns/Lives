@@ -9,10 +9,10 @@ import com.allyn.lives.R;
 import com.allyn.lives.fragment.base.BaseFragment;
 
 
-public class MusicLocalAlbumFragment extends BaseFragment {
+public class MusicLocalLikeFragment extends BaseFragment {
 
-    public static MusicLocalAlbumFragment newInstance() {
-        MusicLocalAlbumFragment musicLocalAlbumFragment = new MusicLocalAlbumFragment();
+    public static MusicLocalLikeFragment newInstance() {
+        MusicLocalLikeFragment musicLocalAlbumFragment = new MusicLocalLikeFragment();
         return musicLocalAlbumFragment;
     }
 
