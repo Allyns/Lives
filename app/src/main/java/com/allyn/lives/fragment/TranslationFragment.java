@@ -2,6 +2,7 @@ package com.allyn.lives.fragment;
 
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +12,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.allyn.lives.R;
+import com.allyn.lives.fragment.base.BaseFragment;
+import com.allyn.lives.model.bean.TranslationBean;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import rx.Subscription;
+import rx.functions.Action1;
 
 
 /**
@@ -22,7 +27,7 @@ import butterknife.ButterKnife;
 public class TranslationFragment extends Fragment {
 
 
-    public TranslationFragment newInstance() {
+    public static TranslationFragment newInstance() {
         TranslationFragment translationFragment = new TranslationFragment();
         return translationFragment;
     }
@@ -37,10 +42,24 @@ public class TranslationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =
-                inflater.inflate(R.layout.fragment_translation, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        View v = inflater.inflate(R.layout.fragment_translation, container, false);
+        ButterKnife.bind(this, v);
+        getDate();
+        return v;
     }
 
+    public void getDate() {
+
+        Subscription s = BaseFragment.liveRetrofit.getTranslationData("allynlive", "650717794", "data", "json", "1.1", mContent.getText().toString()).subscribe(new Action1<TranslationBean>() {
+            @Override
+            public void call(TranslationBean translationBean) {
+                mMsg.setText(translationBean.getQuery());
+            }
+        }, new Action1<Throwable>() {
+            @Override
+            public void call(Throwable throwable) {
+                Snackbar.make(mSubmit, "失败", Snackbar.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

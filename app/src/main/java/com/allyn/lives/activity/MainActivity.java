@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.allyn.lives.R;
 import com.allyn.lives.app.MainApp;
+import com.allyn.lives.fragment.TranslationFragment;
 import com.allyn.lives.fragment.music.local.MusicLocalFragment;
 import com.allyn.lives.view.bottontab.BottomBarTab;
 import com.allyn.lives.view.bottontab.BottomNavigationBar;
@@ -114,13 +115,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = MusicLocalFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_gallery) {
-            fragment = TVFragment.newInstance();
+            fragment = TranslationFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_slideshow) {
-            fragment = TVFragment.newInstance();
+            fragment = TranslationFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_manage) {
-            fragment = MusicLocalFragment.newInstance();
+            fragment = TranslationFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_share) {
             setDarkTheme(isreome);
