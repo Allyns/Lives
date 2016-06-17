@@ -8,7 +8,7 @@
             android:title="音乐" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@mipmap/ic_history_white_48dp"
+            android:icon="@mipmap/ic_history_white"
             android:title="天气" />
         <item
             android:id="@+id/nav_slideshow"
@@ -28,7 +28,7 @@
                 android:title="换肤" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_settings_white"
+                android:icon="@drawable/ic_settings"
                 android:title="设置" />
         </menu>
     </item>
