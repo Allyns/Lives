@@ -8,12 +8,12 @@
             android:title="音乐" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@mipmap/ic_history_white_48dp"
-            android:title="天气" />
+            android:icon="@mipmap/ic_history_white"
+            android:title="图片" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@mipmap/ic_movie_default"
-            android:title="TV" />
+            android:title="视频" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@mipmap/ic_book_selected"
@@ -28,7 +28,7 @@
                 android:title="换肤" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_settings_white"
+                android:icon="@drawable/ic_settings"
                 android:title="设置" />
         </menu>
     </item>
