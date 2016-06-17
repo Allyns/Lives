@@ -33,6 +33,7 @@ public class MusicLocalHolder extends BaseViewHolder<MusicBean> {
     public void setData(MusicBean data) {
         super.setData(data);
         mName.setText(data.getName());
+//        Glide.
         mMsg.setText(data.getArtist() + " - " + data.getAlbum());
     }
 }
