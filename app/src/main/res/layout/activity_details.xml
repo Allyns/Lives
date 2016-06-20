@@ -22,7 +22,7 @@
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleGravity="left|top"
             app:expandedTitleMarginStart="115dp"
-            app:expandedTitleMarginTop="15dp"
+            app:expandedTitleMarginTop="10dp"
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -54,6 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_gravity="bottom"
+                    android:layout_marginTop="10dp"
                     android:layout_toEndOf="@+id/imageView3"
                     android:layout_toRightOf="@+id/imageView3"
                     android:gravity="center"
