@@ -26,8 +26,8 @@ public class LiveRetrofit {
     LiveApi liveApi;
 
     public LiveRetrofit() {
-        File cacheFile = new File(MainApp.getContexts().getExternalCacheDir(),"UMarketCache");
-        Cache cache = new Cache(cacheFile, 1024*1024*50);
+        File cacheFile = new File(MainApp.getContexts().getExternalCacheDir(), "UMarketCache");
+        Cache cache = new Cache(cacheFile, 1024 * 1024 * 50);
         Interceptor interceptor = new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
