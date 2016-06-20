@@ -37,4 +37,6 @@
 
     <color name="btn_press_color_red_dd">#DD4f43</color>
     <color name="btn_press_color_red_e2">#E28271</color>
+
+    <color name="transparent2">#00000000</color>
 </resources>

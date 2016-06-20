@@ -20,6 +20,13 @@
         <item name="commonTextColor">@color/DarkTextCommomColor</item>
     </style>
 
+    <style name="AppTheme.BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppTheme.BSDialogStyle</item>
+    </style>
+
+    <style name="AppTheme.BSDialogStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="behavior_peekHeight">300dp</item>
+    </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
