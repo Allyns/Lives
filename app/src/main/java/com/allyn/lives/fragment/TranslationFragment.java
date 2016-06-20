@@ -98,11 +98,15 @@ public class TranslationFragment extends BaseFragment {
                 .subscribe(new Subscriber<TranslationBean>() {
                     @Override
                     public void onNext(TranslationBean translationBean) {
-                        mMsg.setText(translationBean.getQuery() + "   翻译结果 :  " + translationBean.getTranslation() + "\n\n" + "网络译义"
+                        mMsg.setText(translationBean.getQuery() + "   翻译结果 :  " + translationBean.getTranslation().get(0) + "\n\n" + "网络译义"
                         );
-                        for (TranslationBean.WebEntity webEntity : translationBean.getWeb()) {
-                            web_msg.setText("原文：" + webEntity.getKey()  + "   译文：" + webEntity.getValue()+ "\n");
-                        }
+//                        StringBuffer buffer = new StringBuffer();
+//                        for (int i = 0; i <= translationBean.getWeb().size(); i++) {
+//                            buffer.append("原文：" + translationBean.getWeb().get(i).getKey() + "   译文：" + translationBean.getWeb().get(i).getValue() + "\n");
+//                        }
+//                        web_msg.setText(buffer.toString());
+                        web_msg.setText("原文：" + translationBean.getWeb().get(0).getKey() + "   译文：" + translationBean.getWeb().get(0).getValue() + "\n");
+                        ;
                     }
 
                     @Override
