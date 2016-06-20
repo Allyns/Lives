@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.allyn.lives.R;
+import com.allyn.lives.activity.base.BaseActivity;
 import com.allyn.lives.fragment.base.BaseFragment;
 import com.allyn.lives.model.bean.TranslationBean;
 
@@ -24,7 +25,7 @@ import rx.functions.Action1;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TranslationFragment extends Fragment {
+public class TranslationFragment extends BaseFragment {
 
 
     public static TranslationFragment newInstance() {
@@ -44,13 +45,17 @@ public class TranslationFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_translation, container, false);
         ButterKnife.bind(this, v);
-        getDate();
+        mSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDate();
+            }
+        });
         return v;
     }
 
     public void getDate() {
-
-        Subscription s = BaseFragment.liveRetrofit.getTranslationData("allynlive", "650717794", "data", "json", "1.1", mContent.getText().toString()).subscribe(new Action1<TranslationBean>() {
+        Subscription subscription = BaseActivity.liveRetrofit.getTranslationData("allynlive", "650717794", "data", "json", "1.1", mContent.getText().toString()).subscribe(new Action1<TranslationBean>() {
             @Override
             public void call(TranslationBean translationBean) {
                 mMsg.setText(translationBean.getQuery());
@@ -61,5 +66,13 @@ public class TranslationFragment extends Fragment {
                 Snackbar.make(mSubmit, "失败", Snackbar.LENGTH_SHORT).show();
             }
         });
+        addSubscription(subscription);
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);
     }
 }

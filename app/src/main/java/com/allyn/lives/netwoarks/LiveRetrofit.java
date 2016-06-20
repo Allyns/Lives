@@ -64,8 +64,8 @@ public class LiveRetrofit {
                 .addNetworkInterceptor(new StethoInterceptor())
                 .build();
         Retrofit.Builder retrofit = new Retrofit.Builder();
-        retrofit.client(client)
-                .baseUrl(IPConfig.TranslationApkUrl)
+//        retrofit.client(client)
+        retrofit.baseUrl(IPConfig.TranslationApkUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
         liveApi = retrofit.build().create(LiveApi.class);
