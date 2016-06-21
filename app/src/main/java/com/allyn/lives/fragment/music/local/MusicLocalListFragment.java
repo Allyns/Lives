@@ -37,11 +37,12 @@ public class MusicLocalListFragment extends BeamListFragment<MusicLocalPresenter
         return new MusicLocalHolder(parent);
     }
 
-//    @Override
-//    public int getLayout() {
-//        return R.layout.music_local_main;
-//    }
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return super.onCreateView(inflater, container, savedInstanceState);
 
+    }
     @Override
     protected ListConfig getConfig() {
         return super.getConfig()

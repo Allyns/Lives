@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.allyn.lives.R;
 import com.allyn.lives.model.bean.MusicBean;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 import butterknife.Bind;
@@ -33,7 +34,6 @@ public class MusicLocalHolder extends BaseViewHolder<MusicBean> {
     public void setData(MusicBean data) {
         super.setData(data);
         mName.setText(data.getName());
-//        Glide.
         mMsg.setText(data.getArtist() + " - " + data.getAlbum());
     }
 }
