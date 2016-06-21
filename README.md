@@ -15,7 +15,12 @@ Rxjava
 本地音乐
 ......
 
-<img src="https://github.com/Allyns/Lives/live2.gif" width="320" />
+<img src="https://github.com/Allyns/Lives/blob/master/live2.gif" width="320" />
 
 
 https://github.com/Jude95/Beam/wiki
+
+
+https://github.com/wenhuaijun/SearchPictureTool
+
+http://www.tngou.net/doc
