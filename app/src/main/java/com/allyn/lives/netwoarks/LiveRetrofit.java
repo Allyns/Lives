@@ -25,7 +25,7 @@ public class LiveRetrofit {
 
     LiveApi liveApi;
 
-    public LiveRetrofit() {
+    public LiveRetrofit(String Ip) {
         File cacheFile = new File(MainApp.getContexts().getExternalCacheDir(), "UMarketCache");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 50);
         Interceptor interceptor = new Interceptor() {
@@ -65,7 +65,7 @@ public class LiveRetrofit {
                 .build();
         Retrofit.Builder retrofit = new Retrofit.Builder();
 //        retrofit.client(client)
-        retrofit.baseUrl(IPConfig.TranslationApkUrl)
+        retrofit.baseUrl(Ip)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
         liveApi = retrofit.build().create(LiveApi.class);

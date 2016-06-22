@@ -8,4 +8,7 @@
     <string name="error">请 检 查 网 络 或 者 下 拉 刷 新</string>
     <string name="more">更多</string>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_close">Hello blank fragment</string>
+    <string name="navigation_drawer_open">Hello blank fragment</string>
 </resources>

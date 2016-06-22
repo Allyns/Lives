@@ -43,12 +43,14 @@ public class MusicLocalListFragment extends BeamListFragment<MusicLocalPresenter
         return super.onCreateView(inflater, container, savedInstanceState);
 
     }
+
     @Override
     protected ListConfig getConfig() {
         return super.getConfig()
                 .setLoadmoreAble(true)
                 .setErrorAble(true)
                 .setContainerErrorAble(true)
+                .setContainerProgressRes(R.layout.error_layout)
                 .setNoMoreAble(true);
     }
 }

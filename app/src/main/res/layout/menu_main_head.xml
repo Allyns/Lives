@@ -9,13 +9,16 @@
         android:id="@+id/imageView2"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
         android:src="@mipmap/phone" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white_e"
         android:layout_margin="10dp"
         android:text="Allyn"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -23,6 +26,7 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
+        android:textColor="@color/white_e"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="https://github.com/Allyns"
