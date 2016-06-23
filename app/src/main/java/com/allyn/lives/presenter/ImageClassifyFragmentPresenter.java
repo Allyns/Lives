@@ -2,16 +2,14 @@ package com.allyn.lives.presenter;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.allyn.lives.adapter.ImageClassAdapter;
 import com.allyn.lives.fragment.image.ImageClassifyFragment;
-import com.allyn.lives.model.ImageClassifyModel;
-import com.allyn.lives.model.bean.ImageClassifyBean;
+import com.allyn.lives.model.ImageModel;
+import com.allyn.lives.bean.ImageClassifyBean;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import rx.Subscriber;
@@ -43,7 +41,7 @@ public class ImageClassifyFragmentPresenter extends com.jude.beam.expansion.Beam
 
     @Override
     public void onRefresh() {
-        ImageClassifyModel.getdata(new Subscriber<ImageClassifyBean>() {
+        ImageModel.getDataClassify(new Subscriber<ImageClassifyBean>() {
             @Override
             public void onCompleted() {
                 getView().recyclerView.showProgress();

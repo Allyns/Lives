@@ -8,7 +8,11 @@ public class IPConfig {
     public static final String TranslationApkUrl = "http://fanyi.youdao.com/";
 
 
-    public static final String imageClassifyApiUrl="http://www.tngou.net/";
+    public static final String ImageClassifyApiUrl ="http://www.tngou.net/";
 
+    public static final String ImageUrl ="http://tnfs.tngou.net/image";
+
+
+    public static final String ImageList="http://www.tngou.net/api/book/list";
 
 }

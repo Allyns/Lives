@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 
 import com.allyn.lives.app.MainApp;
-import com.allyn.lives.model.bean.MusicBean;
+import com.allyn.lives.bean.MusicBean;
 
 import java.util.ArrayList;
 

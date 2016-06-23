@@ -2,24 +2,18 @@ package com.allyn.lives.fragment.music.local;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.allyn.lives.R;
 import com.allyn.lives.holder.MusicLocalHolder;
-import com.allyn.lives.model.bean.MusicBean;
+import com.allyn.lives.bean.MusicBean;
 import com.allyn.lives.presenter.MusicLocalPresenter;
 import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.list.BeamListFragment;
 import com.jude.beam.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import rx.schedulers.NewThreadScheduler;
 
 /**
  * Created by apple on 16/6/8.

@@ -1,8 +1,6 @@
 package com.allyn.lives.model;
 
-import com.allyn.lives.activity.base.BaseActivity;
-import com.allyn.lives.fragment.base.BaseFragment;
-import com.allyn.lives.model.bean.TranslationBean;
+import com.allyn.lives.bean.TranslationBean;
 import com.allyn.lives.netwoarks.Invoking;
 
 import rx.Observable;
@@ -23,6 +21,7 @@ public class TranslationModel {
                         .subscribe(new Action1<TranslationBean>() {
                             @Override
                             public void call(TranslationBean translationBean) {
+                                subscriber.onCompleted();
                                 subscriber.onNext(translationBean);
                             }
                         }, new Action1<Throwable>() {

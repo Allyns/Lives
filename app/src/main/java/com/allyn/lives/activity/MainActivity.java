@@ -9,17 +9,26 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.allyn.lives.R;
 import com.allyn.lives.app.MainApp;
+import com.allyn.lives.bean.ImageBean;
 import com.allyn.lives.fragment.TranslationFragment;
 import com.allyn.lives.fragment.image.ImageClassifyFragment;
 import com.allyn.lives.fragment.music.local.MusicLocalFragment;
+import com.allyn.lives.netwoarks.Invoking;
 import com.allyn.lives.view.bottontab.BottomBarTab;
 import com.allyn.lives.view.bottontab.BottomNavigationBar;
 import com.allyn.lives.fragment.video.TVFragment;
+
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

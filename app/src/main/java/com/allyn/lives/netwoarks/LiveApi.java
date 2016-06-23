@@ -1,9 +1,8 @@
 package com.allyn.lives.netwoarks;
 
-import com.allyn.lives.model.bean.ImageClassifyBean;
-import com.allyn.lives.model.bean.TranslationBean;
-
-import java.util.List;
+import com.allyn.lives.bean.ImageBean;
+import com.allyn.lives.bean.ImageClassifyBean;
+import com.allyn.lives.bean.TranslationBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -35,4 +34,20 @@ public interface LiveApi {
      */
     @GET("http://www.tngou.net/api/book/classify")
     Observable<ImageClassifyBean> getImageClassifyData();
+
+
+    /***
+     * 图片列表
+     * http://www.tngou.net/api/book/list?page=1&rows=4&id=4
+     *
+     * @param page
+     * @param rows
+     * @param id
+     * @return
+     */
+    @GET("api/book/list")
+    Observable<ImageBean> getImageList(@Query("page") int page, @Query("rows") int rows, @Query("id") int id);
+//    @GET("http://www.tngou.net/api/book/list")
+//    Observable<ImageBean> getImageList();
+
 }

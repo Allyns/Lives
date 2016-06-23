@@ -1,4 +1,4 @@
-package com.allyn.lives.model.bean;
+package com.allyn.lives.bean;
 
 /**
  * Created by apple on 16/6/12.

@@ -1,4 +1,4 @@
-package com.allyn.lives.model.bean;
+package com.allyn.lives.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;

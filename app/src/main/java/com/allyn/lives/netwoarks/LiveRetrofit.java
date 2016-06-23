@@ -1,7 +1,6 @@
 package com.allyn.lives.netwoarks;
 
 import com.allyn.lives.app.MainApp;
-import com.allyn.lives.model.bean.TranslationBean;
 import com.allyn.lives.utils.NetworkUtils;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
@@ -65,7 +64,8 @@ public class LiveRetrofit {
                 .build();
         Retrofit.Builder retrofit = new Retrofit.Builder();
 //        retrofit.client(client)
-        retrofit.baseUrl(Ip)
+        retrofit
+                .baseUrl(Ip)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
         liveApi = retrofit.build().create(LiveApi.class);

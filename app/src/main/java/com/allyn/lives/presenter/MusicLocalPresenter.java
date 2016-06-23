@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.allyn.lives.activity.DetailsActivity;
 import com.allyn.lives.fragment.music.local.MusicLocalListFragment;
 import com.allyn.lives.model.MusicModel;
-import com.allyn.lives.model.bean.MusicBean;
+import com.allyn.lives.bean.MusicBean;
 import com.jude.beam.expansion.list.BeamListFragmentPresenter;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 

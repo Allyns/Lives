@@ -1,10 +1,7 @@
 package com.allyn.lives.fragment;
 
 
-import android.content.Intent;
-import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -16,22 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.allyn.lives.R;
-import com.allyn.lives.activity.DetailsActivity;
-import com.allyn.lives.activity.base.BaseActivity;
 import com.allyn.lives.fragment.base.BaseFragment;
 import com.allyn.lives.model.TranslationModel;
-import com.allyn.lives.model.bean.TranslationBean;
-import com.facebook.stetho.common.LogUtil;
+import com.allyn.lives.bean.TranslationBean;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import rx.Observable;
 import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
-import rx.observables.AsyncOnSubscribe;
-import rx.schedulers.Schedulers;
 
 
 /**
