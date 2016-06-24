@@ -3,13 +3,14 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_gallery"
+            android:icon="@mipmap/ic_history_white"
+            android:title="图书" />
+        <item
             android:id="@+id/nav_camera"
             android:icon="@mipmap/ic_music_selected"
             android:title="音乐" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@mipmap/ic_history_white"
-            android:title="图片" />
+
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@mipmap/ic_movie_default"

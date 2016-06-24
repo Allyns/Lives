@@ -12,7 +12,4 @@ public class IPConfig {
 
     public static final String ImageUrl ="http://tnfs.tngou.net/image";
 
-
-    public static final String ImageList="http://www.tngou.net/api/book/list";
-
 }

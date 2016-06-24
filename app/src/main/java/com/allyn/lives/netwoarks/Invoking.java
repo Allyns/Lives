@@ -9,6 +9,4 @@ public class Invoking {
 
     public static final LiveApi ImageClassifyRetrofit = new LiveRetrofit(IPConfig.ImageClassifyApiUrl).getliveService();
 
-//    public static final LiveApi ImageClassList = new LiveRetrofit(IPConfig.ImageList).getliveService();
-
 }

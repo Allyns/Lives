@@ -44,7 +44,7 @@ public class MusicLocalListFragment extends BeamListFragment<MusicLocalPresenter
                 .setLoadmoreAble(true)
                 .setErrorAble(true)
                 .setContainerErrorAble(true)
-                .setContainerProgressRes(R.layout.error_layout)
+                .setContainerProgressRes(R.layout.progress_layout)
                 .setNoMoreAble(true);
     }
 }

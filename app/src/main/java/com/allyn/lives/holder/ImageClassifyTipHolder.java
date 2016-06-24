@@ -1,6 +1,7 @@
 package com.allyn.lives.holder;
 
 import android.support.v7.widget.GridLayoutManager;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,6 +32,8 @@ public class ImageClassifyTipHolder extends BaseViewHolder<ImageClassifyBean.Tng
         mClassityName = $(R.id.tvClassifyName);
         btnMore = $(R.id.btnMore);
         recyclerView = $(R.id.recycler);
+
+
     }
 
     @Override
@@ -44,9 +47,14 @@ public class ImageClassifyTipHolder extends BaseViewHolder<ImageClassifyBean.Tng
         recyclerView.setErrorView(R.layout.error_layout);
         recyclerView.setProgressView(R.layout.progress_layout);
         recyclerView.setAdapterWithProgress(adapter);
-
         int typeId = data.getId();
-        ImageModel.getImageList(1, 1, 6, new Subscriber<ImageBean>() {
+        ImageModel.getImageList(1, 4, typeId, new Subscriber<ImageBean>() {
+            @Override
+            public void onNext(ImageBean imageBean) {
+                adapter.clear();
+                adapter.addAll(imageBean.getList());
+            }
+
             @Override
             public void onCompleted() {
                 recyclerView.showProgress();
@@ -57,11 +65,7 @@ public class ImageClassifyTipHolder extends BaseViewHolder<ImageClassifyBean.Tng
                 recyclerView.showError();
             }
 
-            @Override
-            public void onNext(ImageBean imageBean) {
-                adapter.clear();
-                adapter.addAll(imageBean.getList());
-            }
+
         });
 
     }

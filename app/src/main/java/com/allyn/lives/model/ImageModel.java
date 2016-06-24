@@ -18,7 +18,6 @@ import rx.schedulers.Schedulers;
 public class ImageModel {
 
     /***
-     *
      * @param S
      */
     public static void getDataClassify(Subscriber<ImageClassifyBean> S) {
@@ -29,7 +28,6 @@ public class ImageModel {
                         .subscribe(new Action1<ImageClassifyBean>() {
                             @Override
                             public void call(ImageClassifyBean imageClassifyBean) {
-                                subscriber.onCompleted();
                                 subscriber.onNext(imageClassifyBean);
                             }
                         }, new Action1<Throwable>() {
@@ -46,13 +44,12 @@ public class ImageModel {
 
 
     /***
-     *
      * @param page
      * @param typeId
      * @param size
      * @param S
      */
-    public static void getImageList(final int page, final int typeId,final int size, Subscriber<ImageBean> S) {
+    public static void getImageList(final int page, final int size, final int typeId, Subscriber<ImageBean> S) {
 
         Observable.create(new Observable.OnSubscribe<ImageBean>() {
             @Override
@@ -60,11 +57,7 @@ public class ImageModel {
                 Invoking.ImageClassifyRetrofit.getImageList(page, size, typeId).subscribe(new Action1<ImageBean>() {
                     @Override
                     public void call(ImageBean imageBean) {
-                        subscriber.onCompleted();
                         subscriber.onNext(imageBean);
-                        for (ImageBean.ListEntity listEntity : imageBean.getList()) {
-                            Log.i("list----------->",listEntity.getName());
-                        }
                     }
                 }, new Action1<Throwable>() {
                     @Override

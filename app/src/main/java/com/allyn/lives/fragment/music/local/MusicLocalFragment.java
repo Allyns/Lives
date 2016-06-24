@@ -34,7 +34,7 @@ public class MusicLocalFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.freagment_local_music_main, container, false);
+        View v = inflater.inflate(R.layout.fragment_music_tab, container, false);
         ButterKnife.bind(this, v);
         initView();
         return v;

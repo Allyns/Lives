@@ -16,7 +16,7 @@
         <item name="colorPrimaryDark">@color/DarkPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="mainBackground">@color/DarkPrimaryDark</item>
-        <item name="titleColor">@color/DarkTextTitleColor</item>
+        <item name="titleColor">@color/colorAccent</item>
         <item name="commonTextColor">@color/DarkTextCommomColor</item>
     </style>
 

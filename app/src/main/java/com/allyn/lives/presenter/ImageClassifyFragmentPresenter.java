@@ -10,6 +10,7 @@ import com.allyn.lives.adapter.ImageClassAdapter;
 import com.allyn.lives.fragment.image.ImageClassifyFragment;
 import com.allyn.lives.model.ImageModel;
 import com.allyn.lives.bean.ImageClassifyBean;
+import com.allyn.lives.view.widgets.DividerItemDecoration;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import rx.Subscriber;
@@ -35,13 +36,21 @@ public class ImageClassifyFragmentPresenter extends com.jude.beam.expansion.Beam
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getView().getContext());
         getView().recyclerView.setLayoutManager(manager);
         getView().recyclerView.setAdapterWithProgress(adapter);
-//        getView().recyclerView.setRefreshListener(this);
+        getView().recyclerView.setRefreshListener(this);
         adapter.setOnItemClickListener(this);
     }
 
     @Override
     public void onRefresh() {
         ImageModel.getDataClassify(new Subscriber<ImageClassifyBean>() {
+            @Override
+            public void onNext(ImageClassifyBean imageClassifyBean) {
+                imageclassify = imageClassifyBean;
+                adapter.clear();
+
+                adapter.addAll(imageClassifyBean.getTngou());
+            }
+
             @Override
             public void onCompleted() {
                 getView().recyclerView.showProgress();
@@ -54,13 +63,7 @@ public class ImageClassifyFragmentPresenter extends com.jude.beam.expansion.Beam
                 }
             }
 
-            @Override
-            public void onNext(ImageClassifyBean imageClassifyBean) {
-                imageclassify = imageClassifyBean;
-                adapter.clear();
 
-                adapter.addAll(imageClassifyBean.getTngou());
-            }
         });
     }
 

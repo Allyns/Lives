@@ -21,7 +21,6 @@ public class TranslationModel {
                         .subscribe(new Action1<TranslationBean>() {
                             @Override
                             public void call(TranslationBean translationBean) {
-                                subscriber.onCompleted();
                                 subscriber.onNext(translationBean);
                             }
                         }, new Action1<Throwable>() {

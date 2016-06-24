@@ -20,7 +20,7 @@
             <ImageView
                 android:id="@+id/ivClassify"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
+                android:layout_height="120dp"
                 android:src="@drawable/ic_nonetwork" />
 
             <TextView
@@ -29,12 +29,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:text="Title" />
+                android:text="Title"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/tvContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:singleLine="true"

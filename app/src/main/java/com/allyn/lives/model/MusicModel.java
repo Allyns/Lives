@@ -21,8 +21,6 @@ import java.util.List;
 public class MusicModel {
     static String TAG = "MusicModel";
     static private Uri contentUri = Media.EXTERNAL_CONTENT_URI;
-    static private Uri contentUri_image = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-    static private String sortOrder_img = MediaStore.Images.Media._ID + " DESC";
     static private String sortOrder = Media._ID + " DESC";
 
     public static List<MusicBean> getLocaleMusic() {
@@ -40,7 +38,6 @@ public class MusicModel {
             int sizeCol = cursor.getColumnIndex(Media.SIZE);
             int artistCol = cursor.getColumnIndex(Media.ARTIST);
             int urlCol = cursor.getColumnIndex(Media.DATA);
-            int type = cursor.getColumnIndex(Media.MIME_TYPE);
             do {
                 String name = cursor.getString(title);
                 String album = cursor.getString(albumCol);
@@ -65,11 +62,6 @@ public class MusicModel {
                 musicInfo.setFileData(url);
                 musicInfo.setId(id);
                 musicInfo.setName(name);
-//                Cursor cursor_img = MainApp.getContexts().getContentResolver().query(contentUri_image, null, MediaStore.Images.Media._ID + "=?", new String[id], sortOrder_img);
-//                if (cursor_img.moveToNext()) {
-//                    String img_url = cursor_img.getString(cursor_img.getColumnIndex(MediaStore.Images.Media.DATA));
-//                    musicInfo.setImageurl(img_url);
-//                }
                 musicList.add(musicInfo);
 
             } while (cursor.moveToNext());

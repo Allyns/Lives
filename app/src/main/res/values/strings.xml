@@ -5,6 +5,15 @@
         <item>我喜欢</item>
     </array>
 
+    <array name="image_classify_tab">
+        <item>分类</item>
+        <item>生活杂谈</item>
+        <item>家庭教育</item>
+        <item>两性生活</item>
+        <item>健康养生</item>
+        <item>美食烹饪</item>
+    </array>
+
     <string name="error">请 检 查 网 络 或 者 下 拉 刷 新</string>
     <string name="more">更多</string>
 

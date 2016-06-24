@@ -47,7 +47,4 @@ public interface LiveApi {
      */
     @GET("api/book/list")
     Observable<ImageBean> getImageList(@Query("page") int page, @Query("rows") int rows, @Query("id") int id);
-//    @GET("http://www.tngou.net/api/book/list")
-//    Observable<ImageBean> getImageList();
-
 }
