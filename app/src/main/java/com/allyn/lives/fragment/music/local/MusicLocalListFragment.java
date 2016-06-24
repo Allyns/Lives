@@ -41,7 +41,7 @@ public class MusicLocalListFragment extends BeamListFragment<MusicLocalPresenter
     @Override
     protected ListConfig getConfig() {
         return super.getConfig()
-                .setLoadmoreAble(true)
+                .setRefreshAble(true)
                 .setErrorAble(true)
                 .setContainerErrorAble(true)
                 .setContainerProgressRes(R.layout.progress_layout)

@@ -3,7 +3,7 @@ package com.allyn.lives.adapter;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import com.allyn.lives.holder.ImageClassifyHolder;
+import com.allyn.lives.holder.ImageHolder;
 import com.allyn.lives.bean.ImageBean;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
@@ -21,7 +21,7 @@ public class ImageClassItemAdapter extends RecyclerArrayAdapter<ImageBean.ListEn
 
     @Override
     public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ImageClassifyHolder(parent);
+        return new ImageHolder(parent);
     }
 
     @Override

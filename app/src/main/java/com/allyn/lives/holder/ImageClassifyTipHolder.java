@@ -12,8 +12,11 @@ import com.allyn.lives.bean.ImageBean;
 import com.allyn.lives.bean.ImageClassifyBean;
 import com.allyn.lives.model.ImageModel;
 import com.allyn.lives.netwoarks.Invoking;
+import com.allyn.lives.utils.Config;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
+
+import java.util.Random;
 
 import rx.Subscriber;
 
@@ -33,6 +36,11 @@ public class ImageClassifyTipHolder extends BaseViewHolder<ImageClassifyBean.Tng
         btnMore = $(R.id.btnMore);
         recyclerView = $(R.id.recycler);
 
+        adapter = new ImageClassItemAdapter(getContext());
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recyclerView.setErrorView(R.layout.error_layout);
+        recyclerView.setProgressView(R.layout.progress_layout);
+        recyclerView.setAdapterWithProgress(adapter);
 
     }
 
@@ -42,13 +50,8 @@ public class ImageClassifyTipHolder extends BaseViewHolder<ImageClassifyBean.Tng
 
         mClassityName.setText(data.getName());
 
-        adapter = new ImageClassItemAdapter(getContext());
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        recyclerView.setErrorView(R.layout.error_layout);
-        recyclerView.setProgressView(R.layout.progress_layout);
-        recyclerView.setAdapterWithProgress(adapter);
         int typeId = data.getId();
-        ImageModel.getImageList(1, 4, typeId, new Subscriber<ImageBean>() {
+        ImageModel.getImageList(new Random().nextInt(Config.random_size), Config.classify_size, typeId, new Subscriber<ImageBean>() {
             @Override
             public void onNext(ImageBean imageBean) {
                 adapter.clear();

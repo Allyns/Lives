@@ -28,8 +28,20 @@ public class ImageViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 fragment = ImageClassifyFragment.newInstance();
                 break;
-            default:
-                fragment = ImageListFragment.newInstance();
+            case 1:
+                fragment = ImageListFragment.newInstance(8);
+                break;
+            case 2:
+                fragment = ImageListFragment.newInstance(6);
+                break;
+            case 3:
+                fragment = ImageListFragment.newInstance(3);
+                break;
+            case 4:
+                fragment = ImageListFragment.newInstance(3);
+                break;
+            case 5:
+                fragment = ImageListFragment.newInstance(4);
                 break;
         }
         return fragment;

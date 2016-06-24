@@ -46,7 +46,7 @@ public class ImageMainFragment extends BaseFragment {
     private void initView() {
         ImageViewPagerAdapter viewpageradapter = new ImageViewPagerAdapter(getChildFragmentManager());
         mViewpager.setAdapter(viewpageradapter);
-        mViewpager.setOffscreenPageLimit(6);
+//        mViewpager.setOffscreenPageLimit(6);
         mTabLayout.setupWithViewPager(mViewpager);
     }
 }

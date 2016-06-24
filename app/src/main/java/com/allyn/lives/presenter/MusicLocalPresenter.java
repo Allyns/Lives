@@ -21,9 +21,8 @@ import rx.schedulers.Schedulers;
 /**
  * Created by apple on 16/6/8.
  */
-public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalListFragment, MusicBean> implements RecyclerArrayAdapter.OnItemClickListener{
+public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalListFragment, MusicBean> implements RecyclerArrayAdapter.OnItemClickListener {
 
-    Activity activity;
     @Override
     protected void onCreate(MusicLocalListFragment view, Bundle savedState) {
         super.onCreate(view, savedState);
@@ -34,8 +33,6 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
     @Override
     protected void onCreateView(MusicLocalListFragment view) {
         super.onCreateView(view);
-        activity=view.getActivity();
-//        view.getListView().getRecyclerView()
     }
 
     @Override
@@ -53,12 +50,10 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
                 .subscribe(new Subscriber<List<MusicBean>>() {
                     @Override
                     public void onCompleted() {
-
                     }
 
                     @Override
                     public void onError(Throwable e) {
-
                     }
 
                     @Override
@@ -71,12 +66,6 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
 
     @Override
     public void onItemClick(int position) {
-        activity.startActivity(new Intent(activity, DetailsActivity.class));
-    }
-
-    @Override
-    public void onLoadMore() {
-        super.onLoadMore();
-        getAdapter().pauseMore();
+        getView().getActivity().startActivity(new Intent(getView().getActivity(), DetailsActivity.class));
     }
 }
