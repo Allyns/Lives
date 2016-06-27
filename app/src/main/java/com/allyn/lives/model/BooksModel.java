@@ -2,6 +2,7 @@ package com.allyn.lives.model;
 
 import com.allyn.lives.bean.BooksBean;
 import com.allyn.lives.bean.BooksClassifyBean;
+import com.allyn.lives.bean.BooksDetailBean;
 import com.allyn.lives.netwoarks.Invoking;
 
 import rx.Observable;
@@ -69,5 +70,28 @@ public class BooksModel {
                 .subscribeOn(Schedulers.io())
                 .subscribe(S);
 
+    }
+
+    public static void getBooksDetails(final int id,Subscriber<BooksDetailBean> S) {
+
+        Observable.create(new Observable.OnSubscribe<BooksDetailBean>() {
+            @Override
+            public void call(final Subscriber<? super BooksDetailBean> subscriber) {
+                Invoking.BooksClassifyRetrofit.getBookDetails(id).subscribe(new Action1<BooksDetailBean>() {
+                    @Override
+                    public void call(BooksDetailBean imageBean) {
+                        subscriber.onNext(imageBean);
+                    }
+                }, new Action1<Throwable>() {
+                    @Override
+                    public void call(Throwable throwable) {
+                        subscriber.onError(throwable);
+                    }
+                });
+            }
+        })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(S);
     }
 }

@@ -2,6 +2,7 @@ package com.allyn.lives.netwoarks;
 
 import com.allyn.lives.bean.BooksBean;
 import com.allyn.lives.bean.BooksClassifyBean;
+import com.allyn.lives.bean.BooksDetailBean;
 import com.allyn.lives.bean.TranslationBean;
 
 import retrofit2.http.GET;
@@ -37,7 +38,7 @@ public interface LiveApi {
 
 
     /***
-     *图书列表
+     * 图书列表
      * http://www.tngou.net/api/book/list?page=1&rows=4&id=4
      *
      * @param page
@@ -48,22 +49,14 @@ public interface LiveApi {
     @GET("api/book/list")
     Observable<BooksBean> getBooksList(@Query("page") int page, @Query("rows") int rows, @Query("id") int id);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /***
+     * 图书详情
+     * http://www.tngou.net/api/book/show?id=125
+     *
+     * @param id
+     * @return
+     */
+    @GET("api/book/show")
+    Observable<BooksDetailBean> getBookDetails(@Query("id") int id);
 
 }

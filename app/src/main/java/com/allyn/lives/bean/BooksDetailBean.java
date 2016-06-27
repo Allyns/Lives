@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/6/27.
  */
-public class BooksDetails implements Parcelable {
+public class BooksDetailBean implements Parcelable {
 
 
     /**
@@ -229,10 +229,10 @@ public class BooksDetails implements Parcelable {
         dest.writeList(this.list);
     }
 
-    public BooksDetails() {
+    public BooksDetailBean() {
     }
 
-    protected BooksDetails(Parcel in) {
+    protected BooksDetailBean(Parcel in) {
         this.author = in.readString();
         this.bookclass = in.readInt();
         this.count = in.readString();
@@ -248,13 +248,13 @@ public class BooksDetails implements Parcelable {
         in.readList(this.list, List.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<BooksDetails> CREATOR = new Parcelable.Creator<BooksDetails>() {
-        public BooksDetails createFromParcel(Parcel source) {
-            return new BooksDetails(source);
+    public static final Parcelable.Creator<BooksDetailBean> CREATOR = new Parcelable.Creator<BooksDetailBean>() {
+        public BooksDetailBean createFromParcel(Parcel source) {
+            return new BooksDetailBean(source);
         }
 
-        public BooksDetails[] newArray(int size) {
-            return new BooksDetails[size];
+        public BooksDetailBean[] newArray(int size) {
+            return new BooksDetailBean[size];
         }
     };
 
