@@ -28,6 +28,8 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
         super.onCreate(view, savedState);
         onRefresh();
         getAdapter().setOnItemClickListener(this);
+        getView().getListView().setRefreshListener(this);
+
     }
 
     @Override

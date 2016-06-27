@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/6/20.
  */
-public class ImageBean implements Parcelable {
+public class BooksBean implements Parcelable {
 
 
     /**
@@ -197,10 +197,10 @@ public class ImageBean implements Parcelable {
         dest.writeList(this.list);
     }
 
-    public ImageBean() {
+    public BooksBean() {
     }
 
-    protected ImageBean(Parcel in) {
+    protected BooksBean(Parcel in) {
         this.page = in.readInt();
         this.size = in.readInt();
         this.status = in.readByte() != 0;
@@ -210,13 +210,13 @@ public class ImageBean implements Parcelable {
         in.readList(this.list, List.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<ImageBean> CREATOR = new Parcelable.Creator<ImageBean>() {
-        public ImageBean createFromParcel(Parcel source) {
-            return new ImageBean(source);
+    public static final Parcelable.Creator<BooksBean> CREATOR = new Parcelable.Creator<BooksBean>() {
+        public BooksBean createFromParcel(Parcel source) {
+            return new BooksBean(source);
         }
 
-        public ImageBean[] newArray(int size) {
-            return new ImageBean[size];
+        public BooksBean[] newArray(int size) {
+            return new BooksBean[size];
         }
     };
 }

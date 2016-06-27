@@ -1,4 +1,4 @@
-package com.allyn.lives.fragment.image;
+package com.allyn.lives.fragment.books;
 
 
 import android.os.Bundle;
@@ -7,12 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.allyn.lives.R;
-import com.allyn.lives.bean.ImageBean;
-import com.allyn.lives.holder.ImageHolder;
-import com.allyn.lives.presenter.ImageListFragmentPresenter;
+import com.allyn.lives.bean.BooksBean;
+import com.allyn.lives.holder.BooksHolder;
+import com.allyn.lives.presenter.BooksListFragmentPresenter;
 import com.allyn.lives.utils.Config;
 import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.list.BeamListFragment;
@@ -22,14 +21,14 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 /**
  * A simple {@link Fragment} subclass.
  */
-@RequiresPresenter(ImageListFragmentPresenter.class)
-public class ImageListFragment extends BeamListFragment<ImageListFragmentPresenter, ImageBean.ListEntity> {
+@RequiresPresenter(BooksListFragmentPresenter.class)
+public class BooksListFragment extends BeamListFragment<BooksListFragmentPresenter, BooksBean.ListEntity> {
 
 
-    public static ImageListFragment newInstance(int typeId) {
-        ImageListFragment fragment = new ImageListFragment();
+    public static BooksListFragment newInstance(int typeId) {
         Bundle bundle = new Bundle();
-        bundle.getInt(Config.typdId, typeId);
+        bundle.putInt(Config.Type, typeId);
+        BooksListFragment fragment = new BooksListFragment();
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -42,19 +41,8 @@ public class ImageListFragment extends BeamListFragment<ImageListFragmentPresent
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
     protected BaseViewHolder getViewHolder(ViewGroup parent, int viewType) {
-        return new ImageHolder(parent);
+        return new BooksHolder(parent);
     }
 
     @Override

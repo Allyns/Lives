@@ -3,32 +3,32 @@ package com.allyn.lives.presenter;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 
-import com.allyn.lives.bean.ImageBean;
-import com.allyn.lives.fragment.image.ImageListFragment;
-import com.allyn.lives.model.ImageModel;
+import com.allyn.lives.bean.BooksBean;
+import com.allyn.lives.fragment.books.BooksListFragment;
+import com.allyn.lives.model.BooksModel;
 import com.allyn.lives.utils.Config;
 import com.jude.beam.expansion.list.BeamListFragmentPresenter;
+
 import rx.Subscriber;
 
 /**
  * Created by Administrator on 2016/6/24.
  */
-public class ImageListFragmentPresenter extends BeamListFragmentPresenter<ImageListFragment, ImageBean.ListEntity> implements SwipeRefreshLayout.OnRefreshListener {
+public class BooksListFragmentPresenter extends BeamListFragmentPresenter<BooksListFragment, BooksBean.ListEntity> implements SwipeRefreshLayout.OnRefreshListener {
 
     int index = 1;
 
     @Override
-    protected void onCreate(@NonNull ImageListFragment view, Bundle savedState) {
+    protected void onCreate(@NonNull BooksListFragment view, Bundle savedState) {
         super.onCreate(view, savedState);
         onRefresh();
     }
 
     @Override
-    protected void onCreateView(@NonNull ImageListFragment view) {
+    protected void onCreateView(@NonNull BooksListFragment view) {
         super.onCreateView(view);
-
+        getView().getListView().setRefreshListener(this);
     }
 
     @Override
@@ -38,8 +38,7 @@ public class ImageListFragmentPresenter extends BeamListFragmentPresenter<ImageL
     }
 
     public void getData(int page) {
-        Log.i("typeId=========",""+getView().getArguments().getInt(Config.typdId));
-        ImageModel.getImageList(page, Config.size, getView().getArguments().getInt(Config.typdId), new Subscriber<ImageBean>() {
+        BooksModel.getImageList(page, Config.size, getView().getArguments().getInt(Config.Type, 1), new Subscriber<BooksBean>() {
             @Override
             public void onCompleted() {
 
@@ -51,7 +50,7 @@ public class ImageListFragmentPresenter extends BeamListFragmentPresenter<ImageL
             }
 
             @Override
-            public void onNext(ImageBean imageBean) {
+            public void onNext(BooksBean imageBean) {
                 getAdapter().addAll(imageBean.getList());
             }
         });

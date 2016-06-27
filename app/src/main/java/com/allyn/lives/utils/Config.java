@@ -5,13 +5,13 @@ package com.allyn.lives.utils;
  */
 public class Config {
 
-    public static final String typdId="typdId";
+    public static final String Type="list_typeId";
 
     public static final int size=15;
 
     public static final int classify_size=2;
 
-    public static final int def_size=15;
+    public static final int def_size=1;
 
     public static final int random_size=10;
 

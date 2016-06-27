@@ -15,8 +15,8 @@ import android.view.View;
 import com.allyn.lives.R;
 import com.allyn.lives.app.MainApp;
 import com.allyn.lives.fragment.TranslationFragment;
-import com.allyn.lives.fragment.image.ImageMainFragment;
-import com.allyn.lives.fragment.image.NewImageFragment;
+import com.allyn.lives.fragment.books.BooksMainFragment;
+import com.allyn.lives.fragment.books.RecommendBooksFragment;
 import com.allyn.lives.fragment.music.local.MusicLocalFragment;
 import com.allyn.lives.fragment.video.TVFragment;
 import com.allyn.lives.view.bottontab.BottomBarTab;
@@ -53,27 +53,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, ImageMainFragment.newInstance()).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, BooksMainFragment.newInstance()).commitAllowingStateLoss();
 
         setUpBottomNavigationBar();
     }
 
     public void setUpBottomNavigationBar() {
         bottomLayout = (BottomNavigationBar) findViewById(R.id.bottomLayout);
-        bottomLayout.addTab(R.mipmap.ic_favorite_white, "分类图书", MainApp.getContexts().getResources().getColor(R.color.btn_press_color_red_dd));
-        bottomLayout.addTab(R.mipmap.ic_book_selected, "最新图书", MainApp.getContexts().getResources().getColor(R.color.croci));
+        bottomLayout.addTab(R.mipmap.ic_favorite_white, "分类图书", MainApp.getContexts().getResources().getColor(R.color.colorPrimary));
+        bottomLayout.addTab(R.mipmap.ic_book_selected, "推荐图书", MainApp.getContexts().getResources().getColor(R.color.colorAccent));
         bottomLayout.setOnTabListener(new BottomNavigationBar.TabListener() {
             @Override
             public void onSelected(BottomBarTab tab, int position) {
                 Fragment fragment = null;
                 switch (position) {
                     case 0:
-                        fragment = ImageMainFragment.newInstance();
+                        fragment = BooksMainFragment.newInstance();
                         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                         drawer.closeDrawer(GravityCompat.START);
                         break;
                     case 1:
-                        fragment = NewImageFragment.newInstance();
+                        fragment = RecommendBooksFragment.newInstance();
                         break;
                 }
                 getSupportFragmentManager()
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Fragment fragment = null;
         int id = item.getItemId();
         if (id == R.id.nav_gallery) {
-            fragment = ImageMainFragment.newInstance();
+            fragment = BooksMainFragment.newInstance();
         } else if (id == R.id.nav_camera) {
             fragment = MusicLocalFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             this.recreate();
             return true;
         } else if (id == R.id.nav_send) {
-            fragment = ImageMainFragment.newInstance();
+            fragment = BooksMainFragment.newInstance();
         }
         getSupportFragmentManager()
                 .beginTransaction()

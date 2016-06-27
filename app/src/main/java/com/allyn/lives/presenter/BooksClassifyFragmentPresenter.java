@@ -6,11 +6,10 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.allyn.lives.adapter.ImageClassAdapter;
-import com.allyn.lives.fragment.image.ImageClassifyFragment;
-import com.allyn.lives.model.ImageModel;
-import com.allyn.lives.bean.ImageClassifyBean;
-import com.allyn.lives.view.widgets.DividerItemDecoration;
+import com.allyn.lives.adapter.BooksClassAdapter;
+import com.allyn.lives.fragment.books.BooksClassifyFragment;
+import com.allyn.lives.model.BooksModel;
+import com.allyn.lives.bean.BooksClassifyBean;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
 import rx.Subscriber;
@@ -18,20 +17,20 @@ import rx.Subscriber;
 /**
  * Created by Administrator on 2016/6/21.
  */
-public class ImageClassifyFragmentPresenter extends com.jude.beam.expansion.BeamBasePresenter<ImageClassifyFragment> implements SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnItemClickListener {
+public class BooksClassifyFragmentPresenter extends com.jude.beam.expansion.BeamBasePresenter<BooksClassifyFragment> implements SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnItemClickListener {
 
-    ImageClassAdapter adapter;
-    ImageClassifyBean imageclassify;
+    BooksClassAdapter adapter;
+    BooksClassifyBean imageclassify;
 
     @Override
-    protected void onCreate(@NonNull ImageClassifyFragment view, Bundle savedState) {
+    protected void onCreate(@NonNull BooksClassifyFragment view, Bundle savedState) {
         super.onCreate(view, savedState);
-        adapter = new ImageClassAdapter(getView().getContext());
+        adapter = new BooksClassAdapter(getView().getContext());
         onRefresh();
     }
 
     @Override
-    protected void onCreateView(@NonNull ImageClassifyFragment view) {
+    protected void onCreateView(@NonNull BooksClassifyFragment view) {
         super.onCreateView(view);
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getView().getContext());
         getView().recyclerView.setLayoutManager(manager);
@@ -42,9 +41,9 @@ public class ImageClassifyFragmentPresenter extends com.jude.beam.expansion.Beam
 
     @Override
     public void onRefresh() {
-        ImageModel.getDataClassify(new Subscriber<ImageClassifyBean>() {
+        BooksModel.getDataClassify(new Subscriber<BooksClassifyBean>() {
             @Override
-            public void onNext(ImageClassifyBean imageClassifyBean) {
+            public void onNext(BooksClassifyBean imageClassifyBean) {
                 imageclassify = imageClassifyBean;
                 adapter.clear();
 
@@ -72,12 +71,6 @@ public class ImageClassifyFragmentPresenter extends com.jude.beam.expansion.Beam
         int typeId = imageclassify.getTngou().get(position).getId();
 //        startActivity();
     }
-
-
-//    @Override
-//    public void onLoadMore() {
-//
-//    }
 
 }
 

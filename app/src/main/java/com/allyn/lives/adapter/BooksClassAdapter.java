@@ -3,8 +3,8 @@ package com.allyn.lives.adapter;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import com.allyn.lives.holder.ImageClassifyTipHolder;
-import com.allyn.lives.bean.ImageClassifyBean;
+import com.allyn.lives.holder.BooksClassifyTipHolder;
+import com.allyn.lives.bean.BooksClassifyBean;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
@@ -13,15 +13,15 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/6/22.
  */
-public class ImageClassAdapter extends RecyclerArrayAdapter<ImageClassifyBean.TngouEntity> {
+public class BooksClassAdapter extends RecyclerArrayAdapter<BooksClassifyBean.TngouEntity> {
 
-    public ImageClassAdapter(Context context) {
+    public BooksClassAdapter(Context context) {
         super(context);
     }
 
     @Override
     public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ImageClassifyTipHolder(parent);
+        return new BooksClassifyTipHolder(parent);
     }
 
     @Override

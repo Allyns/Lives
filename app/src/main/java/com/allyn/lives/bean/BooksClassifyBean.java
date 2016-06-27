@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/6/21.
  */
-public class ImageClassifyBean implements Parcelable {
+public class BooksClassifyBean implements Parcelable {
 
     /**
      *
@@ -115,22 +115,22 @@ public class ImageClassifyBean implements Parcelable {
         dest.writeList(this.tngou);
     }
 
-    public ImageClassifyBean() {
+    public BooksClassifyBean() {
     }
 
-    protected ImageClassifyBean(Parcel in) {
+    protected BooksClassifyBean(Parcel in) {
         this.status = in.readByte() != 0;
         this.tngou = new ArrayList<TngouEntity>();
         in.readList(this.tngou, List.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<ImageClassifyBean> CREATOR = new Parcelable.Creator<ImageClassifyBean>() {
-        public ImageClassifyBean createFromParcel(Parcel source) {
-            return new ImageClassifyBean(source);
+    public static final Parcelable.Creator<BooksClassifyBean> CREATOR = new Parcelable.Creator<BooksClassifyBean>() {
+        public BooksClassifyBean createFromParcel(Parcel source) {
+            return new BooksClassifyBean(source);
         }
 
-        public ImageClassifyBean[] newArray(int size) {
-            return new ImageClassifyBean[size];
+        public BooksClassifyBean[] newArray(int size) {
+            return new BooksClassifyBean[size];
         }
     };
 }

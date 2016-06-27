@@ -3,8 +3,8 @@ package com.allyn.lives.adapter;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import com.allyn.lives.holder.ImageHolder;
-import com.allyn.lives.bean.ImageBean;
+import com.allyn.lives.holder.BooksHolder;
+import com.allyn.lives.bean.BooksBean;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
@@ -13,15 +13,15 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/6/22.
  */
-public class ImageClassItemAdapter extends RecyclerArrayAdapter<ImageBean.ListEntity> {
+public class BooksClassItemAdapter extends RecyclerArrayAdapter<BooksBean.ListEntity> {
 
-    public ImageClassItemAdapter(Context context) {
+    public BooksClassItemAdapter(Context context) {
         super(context);
     }
 
     @Override
     public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ImageHolder(parent);
+        return new BooksHolder(parent);
     }
 
     @Override

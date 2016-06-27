@@ -1,4 +1,4 @@
-package com.allyn.lives.fragment.image;
+package com.allyn.lives.fragment.books;
 
 
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.allyn.lives.R;
-import com.allyn.lives.adapter.ImageViewPagerAdapter;
+import com.allyn.lives.adapter.BooksViewPagerAdapter;
 import com.allyn.lives.fragment.base.BaseFragment;
 
 import butterknife.Bind;
@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ImageMainFragment extends BaseFragment {
+public class BooksMainFragment extends BaseFragment {
 
     @Bind(R.id.tablayout)
     TabLayout mTabLayout;
@@ -29,8 +29,8 @@ public class ImageMainFragment extends BaseFragment {
     ViewPager mViewpager;
 
 
-    public static  ImageMainFragment newInstance() {
-        ImageMainFragment imageMainFragment = new ImageMainFragment();
+    public static BooksMainFragment newInstance() {
+        BooksMainFragment imageMainFragment = new BooksMainFragment();
         return imageMainFragment;
     }
 
@@ -44,7 +44,7 @@ public class ImageMainFragment extends BaseFragment {
     }
 
     private void initView() {
-        ImageViewPagerAdapter viewpageradapter = new ImageViewPagerAdapter(getChildFragmentManager());
+        BooksViewPagerAdapter viewpageradapter = new BooksViewPagerAdapter(getChildFragmentManager());
         mViewpager.setAdapter(viewpageradapter);
 //        mViewpager.setOffscreenPageLimit(6);
         mTabLayout.setupWithViewPager(mViewpager);
