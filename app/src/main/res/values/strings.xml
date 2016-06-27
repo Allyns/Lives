@@ -20,4 +20,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="navigation_drawer_close">Hello blank fragment</string>
     <string name="navigation_drawer_open">Hello blank fragment</string>
+
+
+    <string name="classify">分类图书</string>
+    <string name="recommend">推荐图书</string>
 </resources>
