@@ -27,7 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DetailsActivity"></activity>
+        <activity android:name=".activity.books.BooksDetailsActivity" />
+        <activity android:name=".activity.books.BooksClassifyDetailsActivity"></activity>
     </application>
 
 </manifest>

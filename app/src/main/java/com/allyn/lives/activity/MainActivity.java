@@ -13,7 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.allyn.lives.R;
+import com.allyn.lives.activity.base.BaseActivity;
 import com.allyn.lives.app.MainApp;
+import com.allyn.lives.fragment.SettingsFragment;
 import com.allyn.lives.fragment.TranslationFragment;
 import com.allyn.lives.fragment.books.BooksMainFragment;
 import com.allyn.lives.fragment.books.RecommendBooksFragment;
@@ -23,7 +25,7 @@ import com.allyn.lives.view.bottontab.BottomBarTab;
 import com.allyn.lives.view.bottontab.BottomNavigationBar;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationBar bottomLayout;
     private boolean isreome = false;
@@ -116,7 +118,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             this.recreate();
             return true;
         } else if (id == R.id.nav_send) {
-            fragment = BooksMainFragment.newInstance();
+            fragment = SettingsFragment.newInstance();
+            bottomLayout.setVisibility(View.GONE);
         }
         getSupportFragmentManager()
                 .beginTransaction()

@@ -47,7 +47,7 @@ public class NewImagePreenter extends BeamListFragmentPresenter<RecommendBooksFr
 
 
     public void getData() {
-        BooksModel.getImageList(new Random().nextInt(10), Config.size, new Random().nextInt(9), new Subscriber<BooksBean>() {
+        BooksModel.getBooksList(new Random().nextInt(10), Config.size, new Random().nextInt(9), new Subscriber<BooksBean>() {
             @Override
             public void onCompleted() {
 

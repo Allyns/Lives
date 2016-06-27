@@ -1,11 +1,14 @@
 package com.allyn.lives.holder;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.allyn.lives.R;
+import com.allyn.lives.activity.books.BooksClassifyDetailsActivity;
 import com.allyn.lives.adapter.BooksClassItemAdapter;
 import com.allyn.lives.bean.BooksBean;
 import com.allyn.lives.bean.BooksClassifyBean;
@@ -43,13 +46,23 @@ public class BooksClassifyTipHolder extends BaseViewHolder<BooksClassifyBean.Tng
     }
 
     @Override
-    public void setData(BooksClassifyBean.TngouEntity data) {
+    public void setData(final BooksClassifyBean.TngouEntity data) {
         super.setData(data);
-
         mClassityName.setText(data.getName());
 
-        int typeId = data.getId();
-        BooksModel.getImageList(new Random().nextInt(Config.random_size), Config.classify_size, typeId, new Subscriber<BooksBean>() {
+        final int Id = data.getId();
+
+        btnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), BooksClassifyDetailsActivity.class);
+                intent.putExtra(Config.BookId, Id);
+                intent.putExtra(Config.BookClassifyName, data.getName());
+                getContext().startActivity(intent);
+            }
+        });
+
+        BooksModel.getBooksList(new Random().nextInt(Config.random_size), Config.classify_size, Id, new Subscriber<BooksBean>() {
             @Override
             public void onNext(BooksBean imageBean) {
                 adapter.clear();
@@ -65,7 +78,6 @@ public class BooksClassifyTipHolder extends BaseViewHolder<BooksClassifyBean.Tng
             public void onError(Throwable e) {
                 recyclerView.showError();
             }
-
 
         });
 

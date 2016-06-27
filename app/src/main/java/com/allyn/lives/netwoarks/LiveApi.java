@@ -33,11 +33,11 @@ public interface LiveApi {
      * @return
      */
     @GET("http://www.tngou.net/api/book/classify")
-    Observable<BooksClassifyBean> getImageClassifyData();
+    Observable<BooksClassifyBean> getBooksClassifyData();
 
 
     /***
-     * 图片列表
+     *图书列表
      * http://www.tngou.net/api/book/list?page=1&rows=4&id=4
      *
      * @param page
@@ -46,7 +46,7 @@ public interface LiveApi {
      * @return
      */
     @GET("api/book/list")
-    Observable<BooksBean> getImageList(@Query("page") int page, @Query("rows") int rows, @Query("id") int id);
+    Observable<BooksBean> getBooksList(@Query("page") int page, @Query("rows") int rows, @Query("id") int id);
 
 
 

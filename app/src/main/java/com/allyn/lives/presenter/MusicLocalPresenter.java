@@ -1,10 +1,9 @@
 package com.allyn.lives.presenter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.allyn.lives.activity.DetailsActivity;
+import com.allyn.lives.activity.books.BooksDetailsActivity;
 import com.allyn.lives.fragment.music.local.MusicLocalListFragment;
 import com.allyn.lives.model.MusicModel;
 import com.allyn.lives.bean.MusicBean;
@@ -28,8 +27,6 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
         super.onCreate(view, savedState);
         onRefresh();
         getAdapter().setOnItemClickListener(this);
-        getView().getListView().setRefreshListener(this);
-
     }
 
     @Override
@@ -68,6 +65,6 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
 
     @Override
     public void onItemClick(int position) {
-        getView().getActivity().startActivity(new Intent(getView().getActivity(), DetailsActivity.class));
+        getView().getActivity().startActivity(new Intent(getView().getActivity(), BooksDetailsActivity.class));
     }
 }

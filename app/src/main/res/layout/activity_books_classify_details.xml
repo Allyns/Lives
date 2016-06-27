@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.allyn.lives.activity.books.BooksClassifyDetailsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:title="@string/app_name"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/recycler"
+        android:layout_height="match_parent">
+
+    </com.jude.easyrecyclerview.EasyRecyclerView>
+</LinearLayout>

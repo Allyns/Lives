@@ -38,7 +38,7 @@ public class BooksListFragmentPresenter extends BeamListFragmentPresenter<BooksL
     }
 
     public void getData(int page) {
-        BooksModel.getImageList(page, Config.size, getView().getArguments().getInt(Config.Type, 1), new Subscriber<BooksBean>() {
+        BooksModel.getBooksList(page, Config.size, getView().getArguments().getInt(Config.Type, 1), new Subscriber<BooksBean>() {
             @Override
             public void onCompleted() {
 

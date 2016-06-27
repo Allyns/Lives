@@ -7,6 +7,6 @@ public class Invoking {
 
     public static final LiveApi translateRetrofit = new LiveRetrofit(IPConfig.TranslationApkUrl).getliveService();
 
-    public static final LiveApi ImageClassifyRetrofit = new LiveRetrofit(IPConfig.ImageClassifyApiUrl).getliveService();
+    public static final LiveApi BooksClassifyRetrofit = new LiveRetrofit(IPConfig.BooksClassifyApiUrl).getliveService();
 
 }

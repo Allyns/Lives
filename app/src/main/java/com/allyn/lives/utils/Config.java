@@ -7,6 +7,10 @@ public class Config {
 
     public static final String Type="list_typeId";
 
+    public static final String BookId="book_Id";
+
+    public static final String BookClassifyName="classify_name";
+
     public static final int size=15;
 
     public static final int classify_size=2;

@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.allyn.lives.R;
-import com.allyn.lives.activity.DetailsActivity;
+import com.allyn.lives.activity.books.BooksDetailsActivity;
 import com.allyn.lives.bean.BooksBean;
 import com.allyn.lives.netwoarks.IPConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
@@ -50,6 +50,6 @@ public class BooksHolder extends BaseViewHolder<BooksBean.ListEntity> implements
 
     @Override
     public void onClick(View view) {
-        getContext().startActivity(new Intent(getContext(), DetailsActivity.class));
+        getContext().startActivity(new Intent(getContext(), BooksDetailsActivity.class));
     }
 }

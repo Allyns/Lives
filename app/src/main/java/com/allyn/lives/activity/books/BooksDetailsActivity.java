@@ -1,4 +1,4 @@
-package com.allyn.lives.activity;
+package com.allyn.lives.activity.books;
 
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,8 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.allyn.lives.R;
+import com.allyn.lives.activity.base.ToolbarActivity;
 
-public class DetailsActivity extends AppCompatActivity {
+public class BooksDetailsActivity extends ToolbarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,7 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     public void toGithub(View view) {
-        final BottomSheetDialog sheetDialog = new BottomSheetDialog(DetailsActivity.this, R.style.AppTheme_BottomSheetDialog);
+        final BottomSheetDialog sheetDialog = new BottomSheetDialog(BooksDetailsActivity.this, R.style.AppTheme_BottomSheetDialog);
         View view1 = LayoutInflater.from(this).inflate(R.layout.myview_dialog, null);
         Button button = (Button) view1.findViewById(R.id.button_dialog);
         TextView textView = (TextView) view1.findViewById(R.id.textView5_dialogD);

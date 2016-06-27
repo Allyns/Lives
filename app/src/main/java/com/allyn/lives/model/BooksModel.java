@@ -22,7 +22,7 @@ public class BooksModel {
         Observable.create(new Observable.OnSubscribe<BooksClassifyBean>() {
             @Override
             public void call(final Subscriber<? super BooksClassifyBean> subscriber) {
-                Invoking.ImageClassifyRetrofit.getImageClassifyData()
+                Invoking.BooksClassifyRetrofit.getBooksClassifyData()
                         .subscribe(new Action1<BooksClassifyBean>() {
                             @Override
                             public void call(BooksClassifyBean imageClassifyBean) {
@@ -47,12 +47,12 @@ public class BooksModel {
      * @param size
      * @param S
      */
-    public static void getImageList(final int page, final int size, final int typeId, Subscriber<BooksBean> S) {
+    public static void getBooksList(final int page, final int size, final int typeId, Subscriber<BooksBean> S) {
 
         Observable.create(new Observable.OnSubscribe<BooksBean>() {
             @Override
             public void call(final Subscriber<? super BooksBean> subscriber) {
-                Invoking.ImageClassifyRetrofit.getImageList(page, size, typeId).subscribe(new Action1<BooksBean>() {
+                Invoking.BooksClassifyRetrofit.getBooksList(page, size, typeId).subscribe(new Action1<BooksBean>() {
                     @Override
                     public void call(BooksBean imageBean) {
                         subscriber.onNext(imageBean);
