@@ -6,6 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.allyn.lives.activity.books.BooksDetailsActivity;
 import com.allyn.lives.adapter.BooksClassAdapter;
 import com.allyn.lives.fragment.books.BooksClassifyFragment;
 import com.allyn.lives.model.BooksModel;
@@ -17,7 +18,7 @@ import rx.Subscriber;
 /**
  * Created by Administrator on 2016/6/21.
  */
-public class BooksClassifyFragmentPresenter extends com.jude.beam.expansion.BeamBasePresenter<BooksClassifyFragment> implements SwipeRefreshLayout.OnRefreshListener, RecyclerArrayAdapter.OnItemClickListener {
+public class BooksClassifyFragmentPresenter extends com.jude.beam.expansion.BeamBasePresenter<BooksClassifyFragment> implements SwipeRefreshLayout.OnRefreshListener {
 
     BooksClassAdapter adapter;
     BooksClassifyBean imageclassify;
@@ -36,7 +37,6 @@ public class BooksClassifyFragmentPresenter extends com.jude.beam.expansion.Beam
         getView().recyclerView.setLayoutManager(manager);
         getView().recyclerView.setAdapterWithProgress(adapter);
         getView().recyclerView.setRefreshListener(this);
-        adapter.setOnItemClickListener(this);
     }
 
     @Override
@@ -61,16 +61,7 @@ public class BooksClassifyFragmentPresenter extends com.jude.beam.expansion.Beam
                     getView().recyclerView.showError();
                 }
             }
-
-
         });
     }
-
-    @Override
-    public void onItemClick(int position) {
-        int typeId = imageclassify.getTngou().get(position).getId();
-//        startActivity();
-    }
-
 }
 

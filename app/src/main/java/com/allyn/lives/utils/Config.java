@@ -9,7 +9,11 @@ public class Config {
 
     public static final String BookId="book_Id";
 
+    public static final String Title="title";
+
     public static final String BookClassifyName="classify_name";
+
+    public static final String DetailId="detail_id";
 
     public static final int size=15;
 

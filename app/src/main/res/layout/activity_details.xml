@@ -21,9 +21,9 @@
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleGravity="left|top"
-            app:expandedTitleMarginStart="155dp"
-            app:expandedTitleMarginTop="5dp"
-            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:expandedTitleMarginStart="30dp"
+            app:expandedTitleMarginTop="30dp"
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
 
@@ -36,77 +36,59 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingBottom="60dp">
 
-                <ImageView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignBottom="@+id/textView6"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:background="@color/black" />
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ivMsg"
+                        android:layout_width="170dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginBottom="25dp"
+                        android:layout_marginTop="5dp"
+                        android:scaleType="fitStart" />
+                </RelativeLayout>
+
             </FrameLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-
                 <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvAuthor"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:layout_gravity="bottom"
-                    android:gravity="center"
-                    android:text="作者：邱忠林"
+                    android:layout_marginLeft="30dp"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/abc_text_size_subhead_material"
                     app:layout_collapseMode="parallax" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+
+                <TextView
+                    android:id="@+id/tvClassifyName"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/textView6"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/s"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/textView6"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="分类：生活杂谈"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/abc_text_size_small_material"
-                        app:layout_collapseMode="parallax" />
-
-                    <TextView
-                        android:id="@+id/time"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/textView6"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="发布时间：2016-6-28"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/abc_text_size_small_material"
-                        app:layout_collapseMode="parallax" />
-
-
-                </LinearLayout>
+                    android:layout_below="@+id/tvAuthor"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/abc_text_size_small_material"
+                    app:layout_collapseMode="parallax" />
 
             </RelativeLayout>
 
@@ -124,6 +106,7 @@
         tools:showIn="@layout/activity_main">
 
         <com.jude.easyrecyclerview.EasyRecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -142,4 +125,12 @@
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
 
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:id="@+id/loading_progre"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        app:matProg_barSpinCycleTime="200"
+        app:matProg_barWidth="4dp"
+        app:matProg_progressIndeterminate="true" />
 </android.support.design.widget.CoordinatorLayout>
