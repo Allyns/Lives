@@ -29,16 +29,16 @@ public class BooksViewPagerAdapter extends FragmentPagerAdapter {
                 fragment = BooksClassifyFragment.newInstance();
                 break;
             case 1:
-                fragment = BooksListFragment.newInstance(8);
+                fragment = BooksListFragment.newInstance(9);
                 break;
             case 2:
-                fragment = BooksListFragment.newInstance(6);
+                fragment = BooksListFragment.newInstance(7);
                 break;
             case 3:
-                fragment = BooksListFragment.newInstance(3);
+                fragment = BooksListFragment.newInstance(4);
                 break;
             case 4:
-                fragment = BooksListFragment.newInstance(4);
+                fragment = BooksListFragment.newInstance(3);
                 break;
             case 5:
                 fragment = BooksListFragment.newInstance(5);

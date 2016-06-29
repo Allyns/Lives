@@ -1,56 +1,79 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.allyn.lives.fragment.TranslationFragment">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <EditText
-            android:id="@+id/content"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:paddingBottom="80dp" />
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/bg_round_rectangle"
-            android:foreground="?selectableItemBackground"
-            android:text="翻译" />
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/bg_round_rectangle_text_bg"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/msg"
+            <EditText
+                android:id="@+id/content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="30dp"
-                android:text="翻译结果: " />
+                android:layout_margin="10dp"
+                android:paddingBottom="80dp" />
 
-            <TextView
-                android:id="@+id/web_msg"
+            <Button
+                android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_round_rectangle"
+                android:foreground="?selectableItemBackground"
+                android:text="翻译" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_round_rectangle_text_bg"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="30dp"
+                    android:text="翻译结果: " />
+
+                <TextView
+                    android:id="@+id/web_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+            </LinearLayout>
+
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-
-</ScrollView>
+</LinearLayout>

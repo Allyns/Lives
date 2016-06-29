@@ -31,14 +31,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private boolean isok = false;
 
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
+
     @Bind(R.id.drawer_layout)
     DrawerLayout drawer;
     @Bind(R.id.nav_view)
     NavigationView navigationView;
     @Bind(R.id.bottomLayout)
-     BottomNavigationBar bottomLayout;
+    BottomNavigationBar bottomLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +59,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private void initView() {
 
-        setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+//        setSupportActionBar(toolbar);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.setDrawerListener(toggle);
+//        toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -122,9 +121,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         editor.putBoolean("isUserDarkMode", !is);
         editor.commit();
     }
+
     public void setUpBottomNavigationBar() {
-        bottomLayout.addTab(R.mipmap.ic_favorite_white, "分类图书", MainApp.getContexts().getResources().getColor(R.color.colorPrimary));
-        bottomLayout.addTab(R.mipmap.ic_book_selected, "推荐图书", MainApp.getContexts().getResources().getColor(R.color.colorAccent));
+        bottomLayout.addTab(R.mipmap.ic_favorite_white, getResources().getString(R.string.classify), MainApp.getContexts().getResources().getColor(R.color.colorPrimary));
+        bottomLayout.addTab(R.mipmap.ic_book_selected, getResources().getString(R.string.recommend), MainApp.getContexts().getResources().getColor(R.color.colorAccent));
         bottomLayout.setOnTabListener(new BottomNavigationBar.TabListener() {
             @Override
             public void onSelected(BottomBarTab tab, int position) {

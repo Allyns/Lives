@@ -4,6 +4,7 @@ package com.allyn.lives.fragment;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +33,8 @@ public class TranslationFragment extends BaseFragment {
         TranslationFragment translationFragment = new TranslationFragment();
         return translationFragment;
     }
-
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
     @Bind(R.id.content)
     EditText mContent;
     @Bind(R.id.submit)
@@ -47,6 +49,7 @@ public class TranslationFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_translation, container, false);
         ButterKnife.bind(this, v);
+        toolbar.setTitle("翻译");
         ActionListener();
         return v;
     }

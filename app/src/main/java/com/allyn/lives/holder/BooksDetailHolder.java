@@ -2,6 +2,7 @@ package com.allyn.lives.holder;
 
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.widget.CardView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.allyn.lives.R;
 import com.allyn.lives.bean.BooksDetailBean;
 import com.allyn.lives.netwoarks.IPConfig;
+import com.allyn.lives.utils.Dialog;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 /**
@@ -22,6 +24,9 @@ public class BooksDetailHolder extends BaseViewHolder<BooksDetailBean.ListEntity
     TextView mtitle;
     TextView mtitleSize;
     CardView card_action;
+
+    String mContent;
+    String mTitle;
 
     public BooksDetailHolder(ViewGroup viewGroup) {
         super(viewGroup, R.layout.item_details_title);
@@ -34,27 +39,16 @@ public class BooksDetailHolder extends BaseViewHolder<BooksDetailBean.ListEntity
     @Override
     public void setData(BooksDetailBean.ListEntity data) {
         super.setData(data);
-        mtitle.setText(data.getTitle());
+        mContent=data.getMessage();
+        mTitle=data.getTitle();
+        mtitle.setText(mTitle);
         int index = getLayoutPosition() + 1;
         mtitleSize.setText(String.valueOf(index + ". "));
     }
 
     @Override
     public void onClick(View view) {
-        final BottomSheetDialog sheetDialog = new BottomSheetDialog(getContext(), R.style.AppTheme_BottomSheetDialog);
-        View view1 = LayoutInflater.from(getContext()).inflate(R.layout.myview_dialog, null);
-        Button button = (Button) view1.findViewById(R.id.button_dialog);
-        TextView textView = (TextView) view1.findViewById(R.id.textView5_dialogD);
-        sheetDialog.setContentView(view1);
-        textView.setText("1839565349");
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sheetDialog.dismiss();
-            }
-        });
-        sheetDialog.setCanceledOnTouchOutside(false);
-        sheetDialog.show();
+        Dialog.showMsg(getContext(),mTitle,mContent);
     }
 
 }

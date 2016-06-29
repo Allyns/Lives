@@ -121,7 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
         android:onClick="toGithub"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@android:drawable/ic_dialog_email"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
 

@@ -24,4 +24,6 @@
 
     <string name="classify">分类图书</string>
     <string name="recommend">推荐图书</string>
+
+    <string name="brief">简介</string>
 </resources>

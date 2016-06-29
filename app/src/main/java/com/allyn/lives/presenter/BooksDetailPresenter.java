@@ -2,18 +2,19 @@ package com.allyn.lives.presenter;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.allyn.lives.R;
 import com.allyn.lives.activity.books.BooksDetailsActivity;
 import com.allyn.lives.adapter.BookTitleAdapter;
 import com.allyn.lives.bean.BooksDetailBean;
 import com.allyn.lives.model.BooksModel;
 import com.allyn.lives.netwoarks.IPConfig;
 import com.allyn.lives.utils.Config;
+import com.allyn.lives.utils.Dialog;
 import com.allyn.lives.utils.Transition;
 import com.jude.beam.expansion.BeamBasePresenter;
 
@@ -37,20 +38,18 @@ public class BooksDetailPresenter extends BeamBasePresenter<BooksDetailsActivity
         onRefresh();
     }
     @Override
-    protected void onCreateView(@NonNull BooksDetailsActivity view) {
-        super.onCreateView(view);
+    protected void onCreateView( final @NonNull BooksDetailsActivity activity) {
+        super.onCreateView(activity);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getView().getApplicationContext());
         getView().recyclerView.setLayoutManager(layoutManager);
         getView().recyclerView.setRefreshListener(this);
         getView().recyclerView.setAdapterWithProgress(adapter);
-        listener();
-    }
 
-    private void listener() {
         getView().fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(getView().recyclerView, "已收藏", Snackbar.LENGTH_SHORT).show();
+                Dialog.showMsg(activity,getView().getResources().getString(R.string.brief),data.getSummary());
             }
         });
     }
@@ -58,10 +57,10 @@ public class BooksDetailPresenter extends BeamBasePresenter<BooksDetailsActivity
 
     @Override
     public void onRefresh() {
+
         BooksModel.getBooksDetails(getView().getIntent().getIntExtra(Config.DetailId, -1), new Subscriber<BooksDetailBean>() {
             @Override
             public void onCompleted() {
-//                getView().recyclerView.showProgress();
             }
 
             @Override
