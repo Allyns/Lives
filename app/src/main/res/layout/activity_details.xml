@@ -26,6 +26,20 @@
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop" />
+            </FrameLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -54,8 +68,8 @@
                         android:layout_marginTop="5dp"
                         android:scaleType="fitStart" />
                 </RelativeLayout>
-
             </FrameLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -122,6 +136,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:onClick="toGithub"
         android:src="@android:drawable/ic_dialog_email"
+        android:visibility="gone"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
 

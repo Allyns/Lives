@@ -16,6 +16,7 @@ import com.allyn.lives.netwoarks.IPConfig;
 import com.allyn.lives.utils.Config;
 import com.allyn.lives.utils.Dialog;
 import com.allyn.lives.utils.Transition;
+import com.allyn.lives.utils.blur.BlurTransformation;
 import com.jude.beam.expansion.BeamBasePresenter;
 
 import java.util.Collections;
@@ -37,8 +38,9 @@ public class BooksDetailPresenter extends BeamBasePresenter<BooksDetailsActivity
         adapter = new BookTitleAdapter(getView().getApplicationContext());
         onRefresh();
     }
+
     @Override
-    protected void onCreateView( final @NonNull BooksDetailsActivity activity) {
+    protected void onCreateView(final @NonNull BooksDetailsActivity activity) {
         super.onCreateView(activity);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getView().getApplicationContext());
@@ -49,7 +51,7 @@ public class BooksDetailPresenter extends BeamBasePresenter<BooksDetailsActivity
         getView().fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog.showMsg(activity,getView().getResources().getString(R.string.brief),data.getSummary());
+                Dialog.showMsg(activity, getView().getResources().getString(R.string.brief), data.getSummary());
             }
         });
     }
@@ -74,18 +76,26 @@ public class BooksDetailPresenter extends BeamBasePresenter<BooksDetailsActivity
                 data = booksDetailBean;
 
                 getView().loading_progre.setVisibility(View.GONE);
+                getView().fab.setVisibility(View.VISIBLE);
 
                 adapter.clear();
                 Collections.reverse(booksDetailBean.getList());
                 adapter.addAll(booksDetailBean.getList());
 
-                getView().mAuthor.setText("作者: "+data.getAuthor());
+                getView().mAuthor.setText("作者: " + data.getAuthor());
                 getView().mTvClassifyName.setText("分类: " + Transition.getClassifyName(data.getBookclass()));
 
                 com.bumptech.glide.Glide.with(getView().getApplicationContext())
                         .load(IPConfig.ImageUrl + data.getImg())
                         .crossFade()
                         .into(getView().mMsg);
+
+                com.bumptech.glide.Glide.with(getView().getApplicationContext())
+                        .load(IPConfig.ImageUrl + data.getImg())
+                        .crossFade()
+                        .bitmapTransform(new BlurTransformation(getView(), 25, 3))
+                        .into(getView().mivBg);
+
             }
         });
     }

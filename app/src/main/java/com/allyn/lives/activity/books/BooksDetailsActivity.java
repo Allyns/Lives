@@ -35,6 +35,8 @@ public class BooksDetailsActivity extends BeamBaseActivity<BooksDetailPresenter>
     public EasyRecyclerView recyclerView;
     @Bind(R.id.ivMsg)
     public ImageView mMsg;
+    @Bind(R.id.ivBg)
+    public ImageView mivBg;
 
 
     @Override
