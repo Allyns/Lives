@@ -10,6 +10,7 @@ import com.allyn.lives.bean.MusicBean;
 import com.jude.beam.expansion.list.BeamListFragmentPresenter;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
+import java.util.Collections;
 import java.util.List;
 
 import rx.Observable;
@@ -58,6 +59,7 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
                     @Override
                     public void onNext(List<MusicBean> musicBeen) {
                         getAdapter().clear();
+                        Collections.reverse(musicBeen);
                         getAdapter().addAll(musicBeen);
                     }
                 });

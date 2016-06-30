@@ -28,7 +28,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.books.BooksDetailsActivity" />
-        <activity android:name=".activity.books.BooksClassifyDetailsActivity"></activity>
+        <activity android:name=".activity.books.BooksClassifyDetailsActivity" />
+        <activity android:name=".activity.music.MusicPlayActivivy" />
+
+        <service
+            android:name=".service.MusicService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
