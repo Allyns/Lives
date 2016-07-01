@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
+                    android:onClick="onButtonClick"
                     android:text="暂停/播放" />
 
                 <Button

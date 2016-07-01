@@ -1,12 +1,22 @@
 package com.allyn.lives.presenter;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.view.MotionEvent;
+import android.view.View;
 
-import com.allyn.lives.activity.books.BooksDetailsActivity;
+import com.allyn.lives.activity.music.MusicPlayActivivy;
+import com.allyn.lives.events.MusicBeamEvent;
 import com.allyn.lives.fragment.music.local.MusicLocalListFragment;
 import com.allyn.lives.model.MusicModel;
 import com.allyn.lives.bean.MusicBean;
+import com.allyn.lives.service.MusicService;
+import com.allyn.lives.utils.RxBus;
 import com.jude.beam.expansion.list.BeamListFragmentPresenter;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
@@ -23,11 +33,19 @@ import rx.schedulers.Schedulers;
  */
 public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalListFragment, MusicBean> implements RecyclerArrayAdapter.OnItemClickListener {
 
+    List<MusicBean> been;
+    MusicService mService;
+    boolean mBound = false;
+
     @Override
     protected void onCreate(MusicLocalListFragment view, Bundle savedState) {
         super.onCreate(view, savedState);
         onRefresh();
         getAdapter().setOnItemClickListener(this);
+
+        Intent intent = new Intent(view.getActivity(), MusicService.class);
+        view.getActivity().bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+
     }
 
     @Override
@@ -58,6 +76,7 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
 
                     @Override
                     public void onNext(List<MusicBean> musicBeen) {
+                        been = musicBeen;
                         getAdapter().clear();
                         Collections.reverse(musicBeen);
                         getAdapter().addAll(musicBeen);
@@ -66,7 +85,40 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
     }
 
     @Override
-    public void onItemClick(int position) {
-        getView().getActivity().startActivity(new Intent(getView().getActivity(), BooksDetailsActivity.class));
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mBound) {
+            getView().getActivity().unbindService(mConnection);
+            mBound = false;
+        }
     }
+
+
+    private ServiceConnection mConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            MusicService.LocalBinder binder = (MusicService.LocalBinder) service;
+            mService = binder.getService();
+            mBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
+
+    @Override
+    public void onItemClick(int position) {
+
+        RxBus.getDefault().post(new MusicBeamEvent(been.get(position)));
+
+        if (mBound) {
+            mService.play();
+        }
+//        getView().getActivity().startActivity(new Intent(getView().getActivity(), MusicPlayActivivy.class));
+    }
+
 }
