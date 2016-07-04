@@ -116,6 +116,7 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
         RxBus.getDefault().post(new MusicBeamEvent(been.get(position)));
 
         if (mBound) {
+            mService.remove();
             mService.play();
         }
 //        getView().getActivity().startActivity(new Intent(getView().getActivity(), MusicPlayActivivy.class));

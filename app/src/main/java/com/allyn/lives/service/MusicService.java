@@ -13,6 +13,7 @@ import com.allyn.lives.utils.RxBus;
 
 import java.net.URI;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Random;
 
 import rx.functions.Action1;
@@ -25,18 +26,21 @@ public class MusicService extends Service {
 
     MusicBean mMusic;
 
+    MusicService musicService = null;
+
 
     public class LocalBinder extends Binder {
         public MusicService getService() {
-            return MusicService.this;
+            if (mediaPlayer == null) {
+                musicService = new MusicService();
+            }
+            return musicService;
         }
     }
 
 
     public void play() {
-        if (mediaPlayer == null) {
-            mediaPlayer = new MediaPlayer();
-        }
+        mediaPlayer = new MediaPlayer();
         RxBus.getDefault().toObserverable(MusicBeamEvent.class)
                 .subscribe(new Action1<MusicBeamEvent>() {
                     @Override
@@ -51,7 +55,6 @@ public class MusicService extends Service {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void stop() {
@@ -64,6 +67,12 @@ public class MusicService extends Service {
 
     public void Previous() {
 
+    }
+
+    public void remove() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
     }
 
     @Override

@@ -42,7 +42,6 @@ public class MusicPlayActivivy extends BaseActivity {
     MusicService mService;
     boolean mBound = false;
     MusicBean mMusic;
-    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +49,7 @@ public class MusicPlayActivivy extends BaseActivity {
         setContentView(R.layout.activity_music_play_activivy);
         ButterKnife.bind(this);
 
-        if (mediaPlayer == null) {
-            mediaPlayer = new MediaPlayer();
-        }
+
 //        RxBus.getDefault().toObserverable(MusicBeamEvent.class)
 //                .subscribe(new Action1<MusicBeamEvent>() {
 //                    @Override
