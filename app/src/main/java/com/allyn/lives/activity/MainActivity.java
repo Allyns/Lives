@@ -11,8 +11,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -23,7 +21,7 @@ import com.allyn.lives.fragment.SettingsFragment;
 import com.allyn.lives.fragment.TranslationFragment;
 import com.allyn.lives.fragment.books.BooksMainFragment;
 import com.allyn.lives.fragment.books.RecommendBooksFragment;
-import com.allyn.lives.fragment.music.local.MusicLocalFragment;
+import com.allyn.lives.fragment.music.MusicLocalFragment;
 import com.allyn.lives.fragment.video.TVFragment;
 import com.allyn.lives.service.MusicService;
 import com.allyn.lives.view.bottontab.BottomBarTab;

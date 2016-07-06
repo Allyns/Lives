@@ -1,4 +1,4 @@
-package com.allyn.lives.fragment.music.local;
+package com.allyn.lives.fragment.music;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

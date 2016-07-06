@@ -15,6 +15,16 @@ public class Config {
 
     public static final String DetailId="detail_id";
 
+    public static final String position ="music_indedx";
+
+    public static final String UpdatePlay ="updateplay";
+
+    public static final String Next ="next";
+
+    public static final String Previous ="Previous";
+
+    public static final String bunder ="bunder";
+
     public static final int size=15;
 
     public static final int classify_size=2;
@@ -22,5 +32,7 @@ public class Config {
     public static final int def_size=1;
 
     public static final int random_size=10;
+
+
 
 }

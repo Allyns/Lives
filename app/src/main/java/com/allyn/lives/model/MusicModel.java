@@ -15,22 +15,22 @@ import android.util.Log;
 
 import java.util.List;
 
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
 /**
  * Created by apple on 16/6/8.
  */
 public class MusicModel {
-    static String TAG = "MusicModel";
     static private Uri contentUri = Media.EXTERNAL_CONTENT_URI;
     static private String sortOrder = Media._ID + " DESC";
 
     public static List<MusicBean> getLocaleMusic() {
         List<MusicBean> musicList = new ArrayList<>();
         Cursor cursor = MainApp.getContexts().getContentResolver().query(contentUri, null, null, null, sortOrder);
-        if (cursor == null) {
-            Log.v(TAG, "Line(37  )   Music Loader cursor == null.");
-        } else if (!cursor.moveToFirst()) {
-            Log.v(TAG, "Line(39  )   Music Loader cursor.moveToFirst() returns false.");
-        } else {
+        while (cursor.moveToNext()) {
             int idCol = cursor.getColumnIndex(Media._ID);
             int title = cursor.getColumnIndex(Media.TITLE);
             int albumCol = cursor.getColumnIndex(Media.ALBUM);
@@ -38,33 +38,30 @@ public class MusicModel {
             int sizeCol = cursor.getColumnIndex(Media.SIZE);
             int artistCol = cursor.getColumnIndex(Media.ARTIST);
             int urlCol = cursor.getColumnIndex(Media.DATA);
-            do {
-                String name = cursor.getString(title);
-                String album = cursor.getString(albumCol);
+            String name = cursor.getString(title);
+            String album = cursor.getString(albumCol);
 
-                int id = cursor.getInt(idCol);
+            int id = cursor.getInt(idCol);
 
-                int duration = cursor.getInt(durationCol);
-                long size = cursor.getLong(sizeCol);
-                String artist = cursor.getString(artistCol);
-                String url = cursor.getString(urlCol);
-                if (album.equals("<unknown>")) {
-                    album = "";
-                }
-                if (artist.equals("<unknown>")) {
-                    artist = "未知";
-                }
-                MusicBean musicInfo = new MusicBean();
-                musicInfo.setAlbum(album);
-                musicInfo.setDuration(duration);
-                musicInfo.setSize(size);
-                musicInfo.setArtist(artist);
-                musicInfo.setFileData(url);
-                musicInfo.setId(id);
-                musicInfo.setName(name);
-                musicList.add(musicInfo);
-
-            } while (cursor.moveToNext());
+            int duration = cursor.getInt(durationCol);
+            long size = cursor.getLong(sizeCol);
+            String artist = cursor.getString(artistCol);
+            String url = cursor.getString(urlCol);
+            if (album.equals("<unknown>")) {
+                album = "";
+            }
+            if (artist.equals("<unknown>")) {
+                artist = "未知";
+            }
+            MusicBean musicInfo = new MusicBean();
+            musicInfo.setAlbum(album);
+            musicInfo.setDuration(duration);
+            musicInfo.setSize(size);
+            musicInfo.setArtist(artist);
+            musicInfo.setFileData(url);
+            musicInfo.setId(id);
+            musicInfo.setName(name);
+            musicList.add(musicInfo);
         }
         return musicList;
     }

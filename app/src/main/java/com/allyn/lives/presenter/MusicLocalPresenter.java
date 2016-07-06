@@ -2,14 +2,19 @@ package com.allyn.lives.presenter;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import com.allyn.lives.activity.music.MusicPlayActivivy;
-import com.allyn.lives.fragment.music.local.MusicLocalListFragment;
+import com.allyn.lives.fragment.music.MusicLocalListFragment;
 import com.allyn.lives.model.MusicModel;
 import com.allyn.lives.bean.MusicBean;
+import com.allyn.lives.service.MusicService;
+import com.allyn.lives.utils.Config;
 import com.jude.beam.expansion.list.BeamListFragmentPresenter;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
+
 import java.util.Collections;
 import java.util.List;
+
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -20,7 +25,7 @@ import rx.schedulers.Schedulers;
  */
 public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalListFragment, MusicBean> implements RecyclerArrayAdapter.OnItemClickListener {
 
-    List<MusicBean> been;
+    static List<MusicBean> been;
 
     @Override
     protected void onCreate(MusicLocalListFragment view, Bundle savedState) {
@@ -68,7 +73,16 @@ public class MusicLocalPresenter extends BeamListFragmentPresenter<MusicLocalLis
 
     @Override
     public void onItemClick(int position) {
+        Intent intent = new Intent(getView().getActivity(), MusicService.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt(Config.position, position);
+        intent.putExtra(Config.bunder, bundle);
+        getView().getActivity().startService(intent);
+
         getView().getActivity().startActivity(new Intent(getView().getActivity(), MusicPlayActivivy.class));
     }
 
+    public static List<MusicBean> getMusicList() {
+        return been;
+    }
 }
