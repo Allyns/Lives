@@ -1,7 +1,12 @@
 package com.allyn.lives.activity;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -20,6 +25,7 @@ import com.allyn.lives.fragment.books.BooksMainFragment;
 import com.allyn.lives.fragment.books.RecommendBooksFragment;
 import com.allyn.lives.fragment.music.local.MusicLocalFragment;
 import com.allyn.lives.fragment.video.TVFragment;
+import com.allyn.lives.service.MusicService;
 import com.allyn.lives.view.bottontab.BottomBarTab;
 import com.allyn.lives.view.bottontab.BottomNavigationBar;
 
@@ -39,11 +45,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Bind(R.id.bottomLayout)
     BottomNavigationBar bottomLayout;
 
+    MusicService mService;
+    boolean mBound = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        Intent intent = new Intent(this, MusicService.class);
+        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
         setThere();
         initView();
     }
@@ -147,4 +158,19 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             }
         });
     }
+    private ServiceConnection mConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            MusicService.MyBinder binder = (MusicService.MyBinder) service;
+            mService = binder.getService();
+            mBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
 }
