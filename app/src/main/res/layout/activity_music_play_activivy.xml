@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context="com.allyn.lives.activity.music.MusicPlayActivivy">
 
     <ImageView
@@ -32,7 +33,46 @@
                 app:layout_scrollFlags="scroll"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/btnReturn"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+
+                        android:background="@drawable/ic_arrow_back"
+                        android:foreground="?selectableItemBackground" />
+
+
+                    <TextView
+                        android:id="@+id/tvMusicNmae"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_horizontal"
+                        android:text="结束"
+                        android:textColor="@color/white_f"
+                        android:textSize="@dimen/font_twenty" />
+
+                    <ImageButton
+                        android:id="@+id/btnMore"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="17dp"
+                        android:layout_marginRight="17dp"
+                        android:background="@mipmap/ic_mroe"
+                        android:foreground="?selectableItemBackground" />
+                </RelativeLayout>
+
             </android.support.v7.widget.Toolbar>
+
 
         </android.support.design.widget.AppBarLayout>
 
@@ -42,103 +82,182 @@
             android:layout_gravity="center_horizontal|bottom"
             android:orientation="vertical">
 
-            <ImageView
+
+            <com.allyn.lives.view.widgets.CircleImageView
                 android:id="@+id/imageView3"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_above="@+id/linearLayout2"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
+                android:layout_below="@+id/tvAuthorName"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="96dp"
-                android:src="@drawable/music_logo" />
+                android:layout_gravity="center"
+                android:layout_marginTop="46dp"
+                android:foreground="?selectableItemBackground"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_music" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/linearLayout"
-                android:layout_alignEnd="@+id/linearLayout"
-                android:layout_alignRight="@+id/linearLayout"
-                android:layout_marginLeft="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvStart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="开始" />
-
-                <SeekBar
-                    android:id="@+id/pro_len"
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/linearLayout"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:max="100" />
-
-                <TextView
-                    android:id="@+id/tvEnd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="结束" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="48dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+                <TextView
+                    android:id="@+id/tvStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="开始"
+                    android:textColor="@color/white_f"
+                    android:textSize="@dimen/font_tiny" />
+
+                <app.minimize.com.seek_bar_compat.SeekBarCompat
+                    android:id="@+id/pro_len"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/tvEnd"
+                    android:layout_toRightOf="@+id/tvStart"
+                    android:layout_toStartOf="@+id/tvEnd"
+                    android:max="100"
+                    android:maxHeight="300sp"
+                    app:progressBackgroundColor="@color/white_e"
+                    app:progressColor="@color/white_f"
+                    app:thumbAlpha="1.0"
+                    app:thumbColor="@color/white_e" />
+
+                <TextView
+                    android:id="@+id/tvEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:text="结束"
+                    android:textColor="@color/white_f"
+                    android:textSize="@dimen/font_tiny" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="100dp"
                 android:orientation="horizontal">
 
 
-                <Button
+                <ImageButton
                     android:id="@+id/btnPrevious"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignTop="@+id/btnNext"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginRight="40dp"
+
+                    android:layout_toLeftOf="@+id/btnPlay"
+                    android:layout_toStartOf="@+id/btnPlay"
                     android:layout_weight="1"
-                    android:text="上一曲" />
+                    android:background="@mipmap/ic_previous"
+                    android:foreground="?selectableItemBackground" />
 
 
-                <Button
+                <ImageButton
                     android:id="@+id/btnPlay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="播放" />
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
 
-                <Button
+                    android:layout_weight="1"
+                    android:background="@mipmap/ic_play"
+                    android:foreground="?selectableItemBackground" />
+
+                <ImageButton
                     android:id="@+id/btnNext"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="33dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_toEndOf="@+id/btnPlay"
+                    android:layout_toRightOf="@+id/btnPlay"
+                    android:layout_weight="1"
+                    android:background="@mipmap/ic_next"
+                    android:foreground="?selectableItemBackground" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/linearLayout2"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:visibility="gone">
+
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="下一曲" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginStart="25dp"
+                    android:background="@mipmap/ic_pause" />
 
-                <Button
+                <ImageButton
                     android:id="@+id/btnLike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="喜欢" />
-            </LinearLayout>
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@mipmap/ic_pause" />
 
-            <TextView
-                android:id="@+id/tvMusicNmae"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/ic_pause" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tvAuthorName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvMusicNmae"
-                android:layout_centerHorizontal="true" />
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="邱忠林"
+                android:textColor="@color/white_f" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp"
+                android:text="暂无歌词"
+                android:textColor="@color/white_f" />
 
 
         </RelativeLayout>

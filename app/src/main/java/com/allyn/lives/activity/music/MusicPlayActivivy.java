@@ -6,9 +6,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -35,13 +35,15 @@ public class MusicPlayActivivy extends BaseActivity {
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.btnPrevious)
-    Button mPrevios;
+    ImageButton mPrevios;
     @Bind(R.id.btnPlay)
-    Button mPlay;
+    ImageButton mPlay;
+    @Bind(R.id.btnReturn)
+    ImageButton btnReturn;
     @Bind(R.id.btnNext)
-    Button mNext;
+    ImageButton mNext;
     @Bind(R.id.btnLike)
-    Button mLike;
+    ImageButton mLike;
     @Bind(R.id.ivBg)
     ImageView mBg;
     @Bind(R.id.pro_len)
@@ -72,10 +74,10 @@ public class MusicPlayActivivy extends BaseActivity {
         intent = new Intent(MusicPlayActivivy.this, MusicService.class);
 
         com.bumptech.glide.Glide.with(this)
-                .load("http://pic.qiantucdn.com/58pic/17/86/39/58u58PICyaM_1024.jpg")
+                .load("http://img3.shijue.cvidea.cn/tf/140326/2326374/5332974e3dfae93ce7000001.PNG")
                 .crossFade()
-                .placeholder(R.drawable.music_logo)
-                .bitmapTransform(new BlurTransformation(this, 50, 3))
+                .placeholder(R.drawable.ic_music)
+                .bitmapTransform(new BlurTransformation(this, 95, 3))
                 .into(mBg);
 
         RxBus.getDefault().toObserverable(MusicBeamEvent.class).subscribe(new Action1<MusicBeamEvent>() {
@@ -168,14 +170,20 @@ public class MusicPlayActivivy extends BaseActivity {
     public void UpdateButton(boolean isPlaying) {
         if (isPlaying) {
             misPlaying = false;
-            mPlay.setText("暂停");
+            mPlay.setBackgroundResource(R.mipmap.ic_play);
         } else {
             misPlaying = true;
-            mPlay.setText("播放");
+            mPlay.setBackgroundResource(R.mipmap.ic_pause);
         }
     }
 
     private void listener() {
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -264,6 +272,6 @@ public class MusicPlayActivivy extends BaseActivity {
         startService(intent);
         tvEnd.setText(PlayMainage.formatTime(PlayMainage.mediaPlayer.getDuration()));
 
-        mPlay.setText("暂停");
+        mPlay.setBackgroundResource(R.mipmap.ic_play);
     }
 }
