@@ -96,8 +96,9 @@ public class MusicPlayActivivy extends BaseActivity {
     Runnable run = new Runnable() {
         @Override
         public void run() {
-            if (PlayMainage.mediaPlayer != null) {
-                mSeekbar.setProgress(PlayMainage.mediaPlayer.getCurrentPosition() * mSeekbar.getMax() / PlayMainage.mediaPlayer.getDuration());
+            MediaPlayer mediaPlayer = PlayMainage.mediaPlayer;
+            if (mediaPlayer != null) {
+                mSeekbar.setProgress(mediaPlayer.getCurrentPosition() * mSeekbar.getMax() / mediaPlayer.getDuration());
             }
             h.postDelayed(run, 100);
         }
@@ -178,62 +179,14 @@ public class MusicPlayActivivy extends BaseActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("mPosition", "---------------1-----===" + mPosition);
-
-
-                if (PlayMainage.Code == PlayMainage.ORDER) {
-                    if (mPosition == PlayMainage.getMusicSize() - 1) {
-                        mPosition = 0;
-                    }
-                    mPosition++;
-                } else {
-                    mPosition = new Random().nextInt(PlayMainage.getMusicSize() - 1);
-                }
-                Log.i("mPosition", "--------------2------===" + mPosition);
-                Bundle bundle = new Bundle();
-                bundle.putInt(Config.position, mPosition);
-                intent.putExtra(Config.bunder, bundle);
-                startService(intent);
-                tvEnd.setText(PlayMainage.formatTime(PlayMainage.mediaPlayer.getDuration()));
-
-//                new Thread(run).start();
-
-                mPlay.setText("暂停");
-
-//                UpdateButton(misPlaying);
-
+                UpdatePlay(true);
             }
         });
 
         mPrevios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("mPosition", "------------1--------===" + mPosition);
-
-
-                if (PlayMainage.Code == PlayMainage.ORDER) {
-                    if (mPosition == 0) {
-                        mPosition = PlayMainage.getMusicSize() - 1;
-                    }
-                    mPosition--;
-                } else {
-                    mPosition = new Random().nextInt(PlayMainage.getMusicSize() - 1);
-                }
-                Bundle bundle = new Bundle();
-                Log.i("mPosition", "-------------2-------===" + mPosition);
-                bundle.putInt(Config.position, mPosition);
-                intent.putExtra(Config.bunder, bundle);
-                startService(intent);
-                tvEnd.setText(PlayMainage.formatTime(PlayMainage.mediaPlayer.getDuration()));
-
-//                new Thread(run).start();
-
-
-
-                mPlay.setText("暂停");
-
-//                UpdateButton(misPlaying);
-
+                UpdatePlay(false);
             }
         });
 
@@ -245,10 +198,10 @@ public class MusicPlayActivivy extends BaseActivity {
                 intent.putExtra(Config.bunder, bundle);
                 startService(intent);
                 new Thread(run).start();
-
                 UpdateButton(misPlaying);
             }
         });
+
         mSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             boolean state = false;
@@ -286,5 +239,31 @@ public class MusicPlayActivivy extends BaseActivity {
 
             }
         });
+    }
+
+    public void UpdatePlay(boolean isNext) {
+        if (PlayMainage.Code == PlayMainage.ORDER) {
+            if (isNext) {
+                if (mPosition == PlayMainage.getMusicSize() - 1) {
+                    mPosition = 0;
+                }
+                mPosition++;
+            } else {
+                if (mPosition == 0) {
+                    mPosition = PlayMainage.getMusicSize() - 1;
+                }
+                mPosition--;
+            }
+
+        } else {
+            mPosition = new Random().nextInt(PlayMainage.getMusicSize() - 1);
+        }
+        Bundle bundle = new Bundle();
+        bundle.putInt(Config.position, mPosition);
+        intent.putExtra(Config.bunder, bundle);
+        startService(intent);
+        tvEnd.setText(PlayMainage.formatTime(PlayMainage.mediaPlayer.getDuration()));
+
+        mPlay.setText("暂停");
     }
 }
