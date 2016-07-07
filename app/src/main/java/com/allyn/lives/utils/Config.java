@@ -17,6 +17,8 @@ public class Config {
 
     public static final String position ="music_indedx";
 
+    public static final String positionNext ="music_indedx";
+
     public static final String UpdatePlay ="updateplay";
 
     public static final String Next ="next";

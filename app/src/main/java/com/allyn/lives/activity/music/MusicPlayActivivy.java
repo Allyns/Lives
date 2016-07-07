@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,6 +23,8 @@ import com.allyn.lives.utils.Config;
 import com.allyn.lives.utils.RxBus;
 import com.allyn.lives.utils.blur.BlurTransformation;
 
+
+import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -93,7 +96,7 @@ public class MusicPlayActivivy extends BaseActivity {
     Runnable run = new Runnable() {
         @Override
         public void run() {
-            if (media != null) {
+            if (PlayMainage.mediaPlayer != null) {
                 mSeekbar.setProgress(PlayMainage.mediaPlayer.getCurrentPosition() * mSeekbar.getMax() / PlayMainage.mediaPlayer.getDuration());
             }
             h.postDelayed(run, 100);
@@ -175,29 +178,61 @@ public class MusicPlayActivivy extends BaseActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                misPlaying = false;
-                UpdateButton(misPlaying);
+                Log.i("mPosition", "---------------1-----===" + mPosition);
 
+
+                if (PlayMainage.Code == PlayMainage.ORDER) {
+                    if (mPosition == PlayMainage.getMusicSize() - 1) {
+                        mPosition = 0;
+                    }
+                    mPosition++;
+                } else {
+                    mPosition = new Random().nextInt(PlayMainage.getMusicSize() - 1);
+                }
+                Log.i("mPosition", "--------------2------===" + mPosition);
                 Bundle bundle = new Bundle();
-                bundle.putBoolean(Config.Next, true);
+                bundle.putInt(Config.position, mPosition);
                 intent.putExtra(Config.bunder, bundle);
                 startService(intent);
-                new Thread(run).start();
+                tvEnd.setText(PlayMainage.formatTime(PlayMainage.mediaPlayer.getDuration()));
+
+//                new Thread(run).start();
+
+                mPlay.setText("暂停");
+
+//                UpdateButton(misPlaying);
 
             }
         });
 
-        mLike.setOnClickListener(new View.OnClickListener() {
+        mPrevios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                misPlaying = false;
-                UpdateButton(misPlaying);
+                Log.i("mPosition", "------------1--------===" + mPosition);
 
+
+                if (PlayMainage.Code == PlayMainage.ORDER) {
+                    if (mPosition == 0) {
+                        mPosition = PlayMainage.getMusicSize() - 1;
+                    }
+                    mPosition--;
+                } else {
+                    mPosition = new Random().nextInt(PlayMainage.getMusicSize() - 1);
+                }
                 Bundle bundle = new Bundle();
-                bundle.putBoolean(Config.Previous, true);
+                Log.i("mPosition", "-------------2-------===" + mPosition);
+                bundle.putInt(Config.position, mPosition);
                 intent.putExtra(Config.bunder, bundle);
                 startService(intent);
-                new Thread(run).start();
+                tvEnd.setText(PlayMainage.formatTime(PlayMainage.mediaPlayer.getDuration()));
+
+//                new Thread(run).start();
+
+
+
+                mPlay.setText("暂停");
+
+//                UpdateButton(misPlaying);
 
             }
         });

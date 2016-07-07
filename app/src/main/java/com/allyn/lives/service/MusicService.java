@@ -26,16 +26,7 @@ public class MusicService extends Service {
         final int startCommand = super.onStartCommand(intent, flags, startId);
         Bundle bundle = intent.getBundleExtra(Config.bunder);
         int position = bundle.getInt(Config.position, -1);
-        boolean isNext = bundle.getBoolean(Config.Next, false);
-        boolean Previous = bundle.getBoolean(Config.Previous, false);
-
-        if (isNext) {
-            ServicePlay(true);
-        }
-
-        if (Previous) {
-            ServicePlay(false);
-        }
+        Log.i("onStartCommand","--------------------==="+position);
 
         if (servicePosition == position) {
             if (PlayMainage.mediaPlayer.isPlaying()) {
@@ -47,6 +38,8 @@ public class MusicService extends Service {
             //更新当前播放音乐下标，
             servicePosition = position;
             PlayMainage.stop();
+
+            Log.i("PlayMainage","--------------------==="+position);
 
             PlayMainage.play(position).setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -74,6 +67,7 @@ public class MusicService extends Service {
     }
 
     public void ServicePlay(boolean isNext) {
+
         //这是当前音乐播放结束之后的监听，先判断播放类型，在播放音乐，
         switch (PlayMainage.Code) {
             case PlayMainage.ORDER:
@@ -81,16 +75,12 @@ public class MusicService extends Service {
                 if (servicePosition == PlayMainage.getMusicSize() - 1) {
                     servicePosition = 0;
                 }
-                if (isNext) {
-                    servicePosition++;
-                } else {
-                    servicePosition--;
-                }
+                servicePosition++;
                 break;
             case PlayMainage.RANDOM:
+                servicePosition = new Random().nextInt(PlayMainage.getMusicSize()-1);
                 break;
             case PlayMainage.REPOT:
-                servicePosition = new Random().nextInt(PlayMainage.getMusicSize());
                 break;
         }
         PlayMainage.stop();
