@@ -1,9 +1,6 @@
 package com.allyn.lives.app;
 
 import android.app.Application;
-import android.app.LauncherActivity;
-import android.content.Context;
-import android.test.mock.MockApplication;
 
 import com.jude.beam.Beam;
 import com.jude.utils.JUtils;

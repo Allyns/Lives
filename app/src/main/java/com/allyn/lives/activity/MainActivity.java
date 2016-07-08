@@ -33,8 +33,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private boolean isok = false;
-
+    private boolean isok = true;
 
     @Bind(R.id.drawer_layout)
     DrawerLayout drawer;
@@ -59,11 +58,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private void setThere() {
         isok = getSharedPreferences("config", MODE_PRIVATE).getBoolean("isUserDarkMode", false);
-        if (isok) {
+//        if (isok) {
             setTheme(R.style.AppTheme);
-        } else {
-            setTheme(R.style.Mytheme);
-        }
+//        } else {
+//            setTheme(R.style.Mytheme);
+//        }
     }
 
     private void initView() {

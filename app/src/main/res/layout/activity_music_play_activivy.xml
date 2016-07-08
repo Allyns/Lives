@@ -99,12 +99,9 @@
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_above="@+id/relativeLayout"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginBottom="48dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp">
+                android:layout_alignParentStart="true">
 
                 <TextView
                     android:id="@+id/tvStart"
@@ -151,9 +148,10 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="100dp"
+                android:layout_above="@+id/linearLayout2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="27dp"
                 android:orientation="horizontal">
 
 
@@ -200,43 +198,47 @@
 
             </RelativeLayout>
 
+
             <RelativeLayout
+                android:id="@+id/relativeLayout"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/linearLayout2"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:visibility="gone">
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_margin="10dp"
+                android:padding="10dp">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/btnMusicList"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="25dp"
                     android:layout_marginStart="25dp"
-                    android:background="@mipmap/ic_pause" />
+                    android:background="@mipmap/ic_musiclist" />
+
 
                 <ImageButton
                     android:id="@+id/btnLike"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/ic_favorite_white" />
+
+                <ImageButton
+                    android:id="@+id/btnPlayCode"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginEnd="25dp"
                     android:layout_marginRight="25dp"
-                    android:background="@mipmap/ic_pause" />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:background="@mipmap/ic_pause" />
+                    android:background="@mipmap/ic_code_play_list" />
             </RelativeLayout>
 
             <TextView
