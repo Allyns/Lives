@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fafafa"
+    android:paddingBottom="8dp"
+    android:paddingLeft="24dp"
+    android:text="@string/app_name"
+    android:paddingTop="8dp"
+    android:textColor="#969696"
+    android:textSize="18sp" />

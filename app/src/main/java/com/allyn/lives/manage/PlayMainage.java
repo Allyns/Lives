@@ -1,11 +1,16 @@
 package com.allyn.lives.manage;
 
+import android.content.ContentResolver;
+import android.content.Context;
 import android.media.MediaPlayer;
-import android.util.Log;
+import android.net.Uri;
+import android.provider.BaseColumns;
+import android.provider.MediaStore;
 
 import com.allyn.lives.bean.MusicBean;
-import com.allyn.lives.presenter.MusicLocalPresenter;
+import com.allyn.lives.fragment.music.MusicLocalListFragment;
 
+import java.io.File;
 import java.util.List;
 
 
@@ -32,7 +37,7 @@ public class PlayMainage {
      */
     public static final int Code = 1;
 
-    static List<MusicBean> musicBeen = MusicLocalPresenter.getMusicList();
+    static List<MusicBean> musicBeen = MusicLocalListFragment.getMusicList();
 
     public static MediaPlayer mediaPlayer = null;
 
@@ -83,16 +88,42 @@ public class PlayMainage {
         long t = time / 1000;
         long mm = t / 60;
         long ss = t % 60;
-        if (mm < 10) {
+        if (mm / 10 == 0) {
             m = "0" + mm;
         } else {
             m = mm + "";
         }
-        if (ss < 10) {
+        if (ss / 10 == 0) {
             n = "0" + ss;
         } else {
             n = ss + "";
         }
         return m + ":" + n;
+    }
+
+    public static boolean deleteMusic(String filePath) {
+        File file = new File(filePath);
+        if (file.isFile() && file.exists()) {
+            return file.delete();
+        }
+        return false;
+    }
+
+    /**
+     * 从数据库中删除歌曲
+     */
+    public static boolean delete(Context context, MusicBean musicBean) {
+        ContentResolver cr = context.getContentResolver();
+        Uri uri = MediaStore.Audio.Media.getContentUriForPath(musicBean.getFileData());
+        boolean isok=deleteMusic(musicBean.getFileData());
+//        if (isok){
+//            return true;
+//        }
+        long s = cr.delete(uri, BaseColumns._ID + "=" + musicBean.getId(), null);
+        if (s != -1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

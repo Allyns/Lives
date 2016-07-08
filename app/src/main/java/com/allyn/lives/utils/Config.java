@@ -17,14 +17,6 @@ public class Config {
 
     public static final String position ="music_indedx";
 
-    public static final String positionNext ="music_indedx";
-
-    public static final String UpdatePlay ="updateplay";
-
-    public static final String Next ="next";
-
-    public static final String Previous ="Previous";
-
     public static final String bunder ="bunder";
 
     public static final int size=15;

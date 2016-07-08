@@ -51,4 +51,8 @@
 
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white_e" />
 </android.support.v7.widget.CardView>

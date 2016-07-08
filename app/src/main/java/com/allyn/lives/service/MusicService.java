@@ -29,8 +29,10 @@ public class MusicService extends Service {
         if (servicePosition == position) {
             if (PlayMainage.mediaPlayer.isPlaying()) {
                 PlayMainage.pause();
+                RxBus.getDefault().post(new MusicBeamEvent(servicePosition));
             } else {
                 PlayMainage.play(position);
+                RxBus.getDefault().post(new MusicBeamEvent(servicePosition));
             }
         } else {
             //更新当前播放音乐下标，

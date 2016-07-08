@@ -1,17 +1,22 @@
 package com.allyn.lives.activity.music;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.allyn.lives.R;
 import com.allyn.lives.activity.base.BaseActivity;
@@ -21,9 +26,12 @@ import com.allyn.lives.manage.PlayMainage;
 import com.allyn.lives.service.MusicService;
 import com.allyn.lives.utils.Config;
 import com.allyn.lives.utils.RxBus;
+import com.allyn.lives.utils.TextFormater;
 import com.allyn.lives.utils.blur.BlurTransformation;
 
 
+import java.io.File;
+import java.util.List;
 import java.util.Random;
 
 import butterknife.Bind;
@@ -34,16 +42,26 @@ public class MusicPlayActivivy extends BaseActivity {
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+    @Bind(R.id.btnReturn)
+    ImageButton btnReturn;
+
     @Bind(R.id.btnPrevious)
     ImageButton mPrevios;
     @Bind(R.id.btnPlay)
     ImageButton mPlay;
-    @Bind(R.id.btnReturn)
-    ImageButton btnReturn;
+
     @Bind(R.id.btnNext)
     ImageButton mNext;
+
     @Bind(R.id.btnLike)
     ImageButton mLike;
+    @Bind(R.id.btnCode)
+    ImageButton btnCode;
+    @Bind(R.id.btnDeleteMusic)
+    ImageButton btnDeleteMusic;
+    @Bind(R.id.btnMore)
+    ImageButton btnMore;
+
     @Bind(R.id.ivBg)
     ImageView mBg;
     @Bind(R.id.pro_len)
@@ -65,6 +83,8 @@ public class MusicPlayActivivy extends BaseActivity {
     private boolean misPlaying = false;
     Intent intent;
 
+    MusicBean music;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,13 +103,14 @@ public class MusicPlayActivivy extends BaseActivity {
         RxBus.getDefault().toObserverable(MusicBeamEvent.class).subscribe(new Action1<MusicBeamEvent>() {
             @Override
             public void call(MusicBeamEvent musicBeamEvent) {
-                MusicBean musicBean = PlayMainage.getList().get(musicBeamEvent.getIndex());
-                tvMusicNmae.setText(musicBean.getName());
-                tvAuthorName.setText(musicBean.getArtist());
+                music = PlayMainage.getList().get(musicBeamEvent.getIndex());
+                tvMusicNmae.setText(music.getName());
+                tvAuthorName.setText(music.getArtist());
             }
         });
 
         listener();
+
 
     }
 
@@ -134,7 +155,7 @@ public class MusicPlayActivivy extends BaseActivity {
         if (mPosition == -1) {
             mPosition = 0;
         }
-        MusicBean music = PlayMainage.getList().get(mPosition);
+        music = PlayMainage.getList().get(mPosition);
         tvMusicNmae.setText(music.getName());
         tvAuthorName.setText(music.getArtist());
     }
@@ -147,7 +168,7 @@ public class MusicPlayActivivy extends BaseActivity {
                 h.post(new Runnable() {
                     @Override
                     public void run() {
-                        int timeLen;
+                        int timeLen = 0;
                         if (PlayMainage.mediaPlayer != null) {
                             timeLen = PlayMainage.mediaPlayer.getCurrentPosition();
                         } else {
@@ -178,6 +199,53 @@ public class MusicPlayActivivy extends BaseActivity {
     }
 
     private void listener() {
+        btnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MusicPlayActivivy.this);
+                builder.setTitle("歌曲详情");
+                builder.setItems(new String[]{
+                        "歌名: " + music.getName(),
+                        "歌手: " + music.getArtist(),
+                        "专辑: " + music.getAlbum(),
+                        "时间: " + PlayMainage.formatTime(music.getDuration()),
+                        "大小: " + TextFormater.getCacheSize(music.getSize()),
+                        "文件地址: " + music.getFileData()
+                }, null);
+                builder.setNegativeButton("确定", null).show();
+            }
+        });
+        btnDeleteMusic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MusicPlayActivivy.this);
+                builder.setTitle("提示");
+                builder.setMessage("确定删除吗?");
+                //取消删除
+                builder.setNegativeButton("取消", new android.content.DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                //删除
+                builder.setPositiveButton("删除", new android.content.DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+//                        boolean isDeleteOk = PlayMainage.delete(MusicPlayActivivy.this, music);
+//                        if (isDeleteOk) {
+                            Snackbar.make(btnDeleteMusic, "删除功能有些Bug，后期修复", Snackbar.LENGTH_SHORT).show();
+//                            RxBus.getDefault().post(new MusicBeamEvent(mPosition));
+//                            UpdatePlay(true);
+//                        } else {
+//                            Snackbar.make(btnDeleteMusic, "删除失败", Snackbar.LENGTH_SHORT).show();
+//                        }
+                        dialog.dismiss();
+                    }
+                });
+                builder.show();
+            }
+        });
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -274,4 +342,6 @@ public class MusicPlayActivivy extends BaseActivity {
 
         mPlay.setBackgroundResource(R.mipmap.ic_play);
     }
+
+
 }

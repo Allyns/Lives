@@ -41,28 +41,30 @@
                         android:id="@+id/btnReturn"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-
                         android:background="@drawable/ic_arrow_back"
                         android:foreground="?selectableItemBackground" />
 
 
                     <TextView
                         android:id="@+id/tvMusicNmae"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_toEndOf="@+id/btnReturn"
+                        android:layout_toLeftOf="@+id/btnMore"
+                        android:layout_toRightOf="@+id/btnReturn"
+                        android:singleLine="true"
                         android:text="结束"
                         android:textColor="@color/white_f"
-                        android:textSize="@dimen/font_twenty" />
+                        android:textSize="@dimen/font_large" />
 
                     <ImageButton
                         android:id="@+id/btnMore"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_alignParentEnd="true"
-
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="17dp"
@@ -100,8 +102,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/relativeLayout"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
 
                 <TextView
                     android:id="@+id/tvStart"
@@ -116,9 +118,10 @@
 
                 <app.minimize.com.seek_bar_compat.SeekBarCompat
                     android:id="@+id/pro_len"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
+                    android:layout_marginLeft="20dp"
                     android:layout_toLeftOf="@+id/tvEnd"
                     android:layout_toRightOf="@+id/tvStart"
                     android:layout_toStartOf="@+id/tvEnd"
@@ -210,7 +213,7 @@
                 android:padding="10dp">
 
                 <ImageButton
-                    android:id="@+id/btnMusicList"
+                    android:id="@+id/btnCode"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignParentLeft="true"
@@ -218,7 +221,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="25dp"
                     android:layout_marginStart="25dp"
-                    android:background="@mipmap/ic_musiclist" />
+                    android:background="@mipmap/ic_code_play_list" />
 
 
                 <ImageButton
@@ -230,7 +233,7 @@
                     android:background="@mipmap/ic_favorite_white" />
 
                 <ImageButton
-                    android:id="@+id/btnPlayCode"
+                    android:id="@+id/btnDeleteMusic"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignParentEnd="true"
@@ -238,7 +241,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginEnd="25dp"
                     android:layout_marginRight="25dp"
-                    android:background="@mipmap/ic_code_play_list" />
+                    android:background="@drawable/ic_delete" />
             </RelativeLayout>
 
             <TextView

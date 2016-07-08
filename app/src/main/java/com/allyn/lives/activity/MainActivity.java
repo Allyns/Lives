@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private void setThere() {
         isok = getSharedPreferences("config", MODE_PRIVATE).getBoolean("isUserDarkMode", false);
 //        if (isok) {
-            setTheme(R.style.AppTheme);
+        setTheme(R.style.AppTheme);
 //        } else {
 //            setTheme(R.style.Mytheme);
 //        }
@@ -78,6 +78,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         getSupportFragmentManager().beginTransaction().replace(R.id.container, BooksMainFragment.newInstance()).commitAllowingStateLoss();
 
         setUpBottomNavigationBar();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mConnection != null)
+            unbindService(mConnection);
     }
 
     @Override
@@ -155,6 +162,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             }
         });
     }
+
     private ServiceConnection mConnection = new ServiceConnection() {
 
         @Override

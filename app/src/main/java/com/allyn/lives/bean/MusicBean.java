@@ -1,9 +1,11 @@
 package com.allyn.lives.bean;
 
+import me.yokeyword.indexablelistview.IndexEntity;
+
 /**
  * Created by apple on 16/6/8.
  */
-public class MusicBean {
+public class MusicBean extends IndexEntity{
     /***
      * 歌曲id   id
      * 歌曲名称     name
