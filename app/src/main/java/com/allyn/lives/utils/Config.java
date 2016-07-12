@@ -17,6 +17,8 @@ public class Config {
 
     public static final String position ="music_indedx";
 
+    public static final String position_liteorm="position_liteorm";
+
     public static final String bunder ="bunder";
 
     public static final int size=15;

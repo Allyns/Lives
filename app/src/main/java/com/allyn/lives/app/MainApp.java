@@ -12,7 +12,7 @@ import com.litesuits.orm.LiteOrm;
 public class MainApp extends Application {
 
     static MainApp mainApp;
-    LiteOrm liteOrm;
+    static LiteOrm liteOrm;
 
     @Override
     public void onCreate() {
@@ -34,9 +34,9 @@ public class MainApp extends Application {
         return mainApp;
     }
 
-    public LiteOrm getLiteOrm() {
+    public static LiteOrm getLiteOrm() {
         if (liteOrm == null) {
-            liteOrm = LiteOrm.newCascadeInstance(this, "live.db");
+            liteOrm = LiteOrm.newCascadeInstance(mainApp.getApplicationContext(), "musiclike.db");
         }
         return liteOrm;
     }

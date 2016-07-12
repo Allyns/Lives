@@ -94,8 +94,8 @@ public class MusicLocalListFragment extends BaseFragment {
         if (position == -1) {
             position = 0;
         }
-        tvAuthorName.setText(been.get(position).getArtist());
-        tvMusicNmae.setText(been.get(position).getName());
+        tvAuthorName.setText(PlayMainage.getList().get(position).getArtist());
+        tvMusicNmae.setText(PlayMainage.getList().get(position).getName());
         MediaPlayer mediaPlayer = PlayMainage.mediaPlayer;
         if (mediaPlayer != null) {
             if (mediaPlayer.isPlaying()) {

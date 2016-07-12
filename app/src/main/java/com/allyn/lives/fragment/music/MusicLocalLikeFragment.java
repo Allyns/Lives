@@ -1,15 +1,18 @@
 package com.allyn.lives.fragment.music;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.allyn.lives.R;
-import com.allyn.lives.fragment.base.BaseFragment;
+import com.allyn.lives.bean.MusicBean;
+import com.allyn.lives.holder.MusicLocalHolder;
+import com.allyn.lives.presenter.MusicLikePreenter;
+import com.jude.beam.bijection.RequiresPresenter;
+import com.jude.beam.expansion.list.BeamListFragment;
+import com.jude.beam.expansion.list.ListConfig;
+import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
-
-public class MusicLocalLikeFragment extends BaseFragment {
+@RequiresPresenter(MusicLikePreenter.class)
+public class MusicLocalLikeFragment extends BeamListFragment<MusicLikePreenter, MusicBean> {
 
     public static MusicLocalLikeFragment newInstance() {
         MusicLocalLikeFragment musicLocalAlbumFragment = new MusicLocalLikeFragment();
@@ -17,8 +20,12 @@ public class MusicLocalLikeFragment extends BaseFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_music_local_like, container, false);
+    protected BaseViewHolder getViewHolder(ViewGroup parent, int viewType) {
+        return new MusicLocalHolder(parent);
+    }
+
+    @Override
+    protected ListConfig getConfig() {
+        return super.getConfig().setContainerProgressRes(R.layout.progress_layout).setErrorRes(R.layout.nul_layout).setErrorAble(true);
     }
 }

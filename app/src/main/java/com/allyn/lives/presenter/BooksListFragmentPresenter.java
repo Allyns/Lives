@@ -46,7 +46,6 @@ public class BooksListFragmentPresenter extends BeamListFragmentPresenter<BooksL
 
             @Override
             public void onError(Throwable e) {
-
             }
 
             @Override
