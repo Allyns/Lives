@@ -138,8 +138,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     public void setUpBottomNavigationBar() {
-        bottomLayout.addTab(R.mipmap.ic_favorite_white, getResources().getString(R.string.classify), MainApp.getContexts().getResources().getColor(R.color.colorPrimary));
-        bottomLayout.addTab(R.mipmap.ic_book_selected, getResources().getString(R.string.recommend), MainApp.getContexts().getResources().getColor(R.color.colorAccent));
+        bottomLayout.addTab(R.mipmap.ic_classity, getResources().getString(R.string.classify), MainApp.getContexts().getResources().getColor(R.color.colorPrimary));
+        bottomLayout.addTab(R.mipmap.ic_new_book, getResources().getString(R.string.recommend), MainApp.getContexts().getResources().getColor(R.color.colorAccent));
         bottomLayout.setOnTabListener(new BottomNavigationBar.TabListener() {
             @Override
             public void onSelected(BottomBarTab tab, int position) {

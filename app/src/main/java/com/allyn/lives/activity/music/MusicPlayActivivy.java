@@ -160,9 +160,30 @@ public class MusicPlayActivivy extends BaseActivity {
         if (mPosition == -1) {
             mPosition = 0;
         }
+
         music = PlayMainage.getList().get(mPosition);
         tvMusicNmae.setText(music.getName());
         tvAuthorName.setText(music.getArtist());
+
+        boolean isLike = IsLike(music);
+        if (isLike) {
+            mLike.setBackgroundResource(R.mipmap.ic_like_white);
+        } else {
+            mLike.setBackgroundResource(R.mipmap.ic_unlike_white);
+        }
+
+        switch (PlayMainage.getCode()) {
+            case PlayMainage.ORDER:
+                btnCode.setBackgroundResource(R.mipmap.ic_order);
+                break;
+            case PlayMainage.RANDOM:
+                btnCode.setBackgroundResource(R.mipmap.ic_random);
+                break;
+            case PlayMainage.REPOT:
+                btnCode.setBackgroundResource(R.mipmap.ic_circulation);
+                break;
+        }
+
     }
 
 
@@ -212,14 +233,17 @@ public class MusicPlayActivivy extends BaseActivity {
                     case PlayMainage.ORDER:
                         PlayMainage.setCode(PlayMainage.RANDOM);
                         Toast.makeText(MusicPlayActivivy.this, "随机", Toast.LENGTH_SHORT).show();
+                        btnCode.setBackgroundResource(R.mipmap.ic_random);
                         break;
                     case PlayMainage.RANDOM:
                         PlayMainage.setCode(PlayMainage.REPOT);
                         Toast.makeText(MusicPlayActivivy.this, "单循环", Toast.LENGTH_SHORT).show();
+                        btnCode.setBackgroundResource(R.mipmap.ic_circulation);
                         break;
                     case PlayMainage.REPOT:
                         PlayMainage.setCode(PlayMainage.ORDER);
                         Toast.makeText(MusicPlayActivivy.this, "顺序", Toast.LENGTH_SHORT).show();
+                        btnCode.setBackgroundResource(R.mipmap.ic_order);
                         break;
                 }
             }
@@ -239,10 +263,10 @@ public class MusicPlayActivivy extends BaseActivity {
                             MainApp.getLiteOrm().delete(new WhereBuilder(MusicBean.class,
                                     MusicBean.MusicBeamId + "=?",
                                     new String[]{String.valueOf(music.getMusicId())}));
-                            Toast.makeText(MusicPlayActivivy.this, "取消喜欢", Toast.LENGTH_SHORT).show();
+                            mLike.setBackgroundResource(R.mipmap.ic_unlike_white);
                         } else {
                             MainApp.getLiteOrm().save(music);
-                            Toast.makeText(MusicPlayActivivy.this, "已喜欢", Toast.LENGTH_SHORT).show();
+                            mLike.setBackgroundResource(R.mipmap.ic_like_white);
                         }
                     }
                 });
@@ -370,11 +394,15 @@ public class MusicPlayActivivy extends BaseActivity {
     public boolean IsLike(MusicBean musicBean) {
         List<MusicBean> bean = MainApp.getLiteOrm().query(MusicBean.class);
         for (MusicBean musicBean1 : bean) {
-            if (musicBean.getId() == musicBean1.getId()) {
+            if (musicBean.getName().equals(musicBean1.getName())) {
                 return true;
             }
         }
         return false;
+    }
+
+    public void getPlayCode() {
+
     }
 
     public void UpdatePlay(boolean isNext) {
@@ -397,7 +425,7 @@ public class MusicPlayActivivy extends BaseActivity {
 
         }
         PlayMainage.stop();
-        PlayMainage.play(mPosition,false);
+        PlayMainage.play(mPosition, false);
         //修改当前播放音乐的位置
         MusicService.servicePosition = mPosition;
         //根据歌曲位置获取歌曲

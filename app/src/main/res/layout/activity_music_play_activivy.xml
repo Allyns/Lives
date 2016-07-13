@@ -214,8 +214,8 @@
 
                 <ImageButton
                     android:id="@+id/btnCode"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
@@ -226,22 +226,22 @@
 
                 <ImageButton
                     android:id="@+id/btnLike"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:background="@mipmap/ic_favorite_white" />
 
                 <ImageButton
                     android:id="@+id/btnDeleteMusic"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginEnd="25dp"
                     android:layout_marginRight="25dp"
-                    android:background="@drawable/ic_delete" />
+                    android:background="@mipmap/ic_delete" />
             </RelativeLayout>
 
             <TextView

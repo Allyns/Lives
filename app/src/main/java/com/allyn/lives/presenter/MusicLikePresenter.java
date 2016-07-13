@@ -3,6 +3,7 @@ package com.allyn.lives.presenter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -21,7 +22,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/7/11.
  */
-public class MusicLikePreenter extends BeamListFragmentPresenter<MusicLocalLikeFragment, MusicBean> implements RecyclerArrayAdapter.OnItemClickListener {
+public class MusicLikePresenter extends BeamListFragmentPresenter<MusicLocalLikeFragment, MusicBean> implements RecyclerArrayAdapter.OnItemClickListener,SwipeRefreshLayout.OnRefreshListener {
 
 
     List<MusicBean> musicBean;
@@ -29,17 +30,24 @@ public class MusicLikePreenter extends BeamListFragmentPresenter<MusicLocalLikeF
     @Override
     protected void onCreate(@NonNull MusicLocalLikeFragment view, Bundle savedState) {
         super.onCreate(view, savedState);
-        musicBean = MainApp.getLiteOrm().query(MusicBean.class);
-        getAdapter().addAll(musicBean);
-        getAdapter().setOnItemClickListener(this);
+        onRefresh();
     }
 
     @Override
     protected void onCreateView(@NonNull MusicLocalLikeFragment view) {
         super.onCreateView(view);
+        getView().getListView().setRefreshListener(this);
         if (musicBean.size() == 0) {
             getView().getListView().showError();
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        super.onRefresh();
+        musicBean = MainApp.getLiteOrm().query(MusicBean.class);
+        getAdapter().addAll(musicBean);
+        getAdapter().setOnItemClickListener(this);
     }
 
     @Override
