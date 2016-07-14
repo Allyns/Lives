@@ -93,6 +93,9 @@ public class MusicLocalListFragment extends BaseFragment {
         int position = MusicService.servicePosition;
         if (position == -1) {
             position = 0;
+            relativeLayout.setVisibility(View.GONE);
+        }else {
+            relativeLayout.setVisibility(View.VISIBLE);
         }
         tvAuthorName.setText(PlayMainage.getList().get(position).getArtist());
         tvMusicNmae.setText(PlayMainage.getList().get(position).getName());

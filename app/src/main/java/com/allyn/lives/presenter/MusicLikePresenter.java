@@ -17,6 +17,7 @@ import com.jude.beam.expansion.list.BeamListFragment;
 import com.jude.beam.expansion.list.BeamListFragmentPresenter;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -46,6 +47,7 @@ public class MusicLikePresenter extends BeamListFragmentPresenter<MusicLocalLike
     public void onRefresh() {
         super.onRefresh();
         musicBean = MainApp.getLiteOrm().query(MusicBean.class);
+        Collections.reverse(musicBean);
         getAdapter().addAll(musicBean);
         getAdapter().setOnItemClickListener(this);
     }
