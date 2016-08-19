@@ -38,7 +38,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:fitsSystemWindows="true"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    />
             </FrameLayout>
 
             <android.support.v7.widget.Toolbar

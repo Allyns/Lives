@@ -30,6 +30,11 @@ public class BooksClassAdapter extends RecyclerArrayAdapter<BooksClassifyBean.Tn
     }
 
     @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
+    }
+
+    @Override
     public int getCount() {
         return super.getCount();
     }

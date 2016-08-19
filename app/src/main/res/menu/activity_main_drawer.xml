@@ -11,10 +11,10 @@
             android:icon="@mipmap/ic_music_selected"
             android:title="音乐" />
 
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@mipmap/ic_movie_default"
-            android:title="视频" />
+        <!--<item-->
+            <!--android:id="@+id/nav_slideshow"-->
+            <!--android:icon="@mipmap/ic_movie_default"-->
+            <!--android:title="视频" />-->
         <item
             android:id="@+id/nav_manage"
             android:icon="@mipmap/ic_book_people"

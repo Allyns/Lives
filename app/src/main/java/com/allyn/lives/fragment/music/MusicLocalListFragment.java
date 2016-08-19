@@ -123,11 +123,6 @@ public class MusicLocalListFragment extends BaseFragment {
                 subscriber.onNext(MusicModel.getLocaleMusic());
                 subscriber.onCompleted();
             }
-        }).filter(new Func1<List<MusicBean>, Boolean>() {
-            @Override
-            public Boolean call(List<MusicBean> musicBeen) {
-                return filemp3(musicBeen);
-            }
         }).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<List<MusicBean>>() {
@@ -147,16 +142,6 @@ public class MusicLocalListFragment extends BaseFragment {
                         getMsg();
                     }
                 });
-    }
-
-    public boolean filemp3(List<MusicBean> musicBeen) {
-        Observable.from(musicBeen).filter(new Func1<MusicBean, Boolean>() {
-            @Override
-            public Boolean call(MusicBean musicBean) {
-                return musicBean.getFileData().contains(".mp3");
-            }
-        });
-        return true;
     }
 
     private void listener() {

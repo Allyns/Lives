@@ -8,28 +8,24 @@ import com.allyn.lives.app.MainApp;
 import com.allyn.lives.bean.MusicBean;
 
 import java.util.ArrayList;
-
-import android.provider.MediaStore;
 import android.provider.MediaStore.Audio.Media;
-import android.util.Log;
 
 import java.util.List;
 
-import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by apple on 16/6/8.
  */
 public class MusicModel {
     static private Uri contentUri = Media.EXTERNAL_CONTENT_URI;
-    static private String sortOrder = Media._ID + " DESC";
+    //    static private String sortOrder = Media._ID + " DESC";
+    static String sortOrder = Media.DATA;
 
     public static List<MusicBean> getLocaleMusic() {
+
         List<MusicBean> musicList = new ArrayList<>();
         Cursor cursor = MainApp.getContexts().getContentResolver().query(contentUri, null, null, null, sortOrder);
+
         while (cursor.moveToNext()) {
             int idCol = cursor.getColumnIndex(Media._ID);
             int title = cursor.getColumnIndex(Media.TITLE);

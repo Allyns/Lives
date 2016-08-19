@@ -109,10 +109,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         } else if (id == R.id.nav_manage) {
             fragment = TranslationFragment.newInstance();
             bottomLayout.setVisibility(View.GONE);
-        } else if (id == R.id.nav_slideshow) {
-            fragment = TVFragment.newInstance();
-            bottomLayout.setVisibility(View.GONE);
-        } else if (id == R.id.nav_share) {
+        }
+//        else if (id == R.id.nav_slideshow) {
+//            fragment = TVFragment.newInstance();
+//            bottomLayout.setVisibility(View.GONE);
+//        }
+        else if (id == R.id.nav_share) {
             setDarkTheme(isok);
             this.recreate();
             return true;
