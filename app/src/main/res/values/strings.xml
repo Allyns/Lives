@@ -26,4 +26,27 @@
     <string name="recommend">推荐图书</string>
 
     <string name="brief">简介</string>
+
+
+
+    <string name="main_activity_center_content">@string/app_name</string>
+    <string name="enter">确认</string>
+    <string name="cancel">取消</string>
+
+    <string name="click_goto_tagsource">点击进入栏目</string>
+
+    <string name="search_bar_cancel">取消</string>
+
+    <!-- common list view  -->
+    <string name="header_hint_normal">下拉刷新</string>
+    <string name="header_hint_ready">松开刷新</string>
+    <string name="header_hint_loading">正在加载...</string>
+    <string name="header_last_time">上次更新时间：</string>
+    <string name="footer_hint_normal">查看更多</string>
+    <string name="footer_hint_ready">松开加载</string>
+    <string name="footer_hint_loadmoreing">正在加载...</string>
+
+    <string name="action_settings">sortlistview</string>
+
+
 </resources>
