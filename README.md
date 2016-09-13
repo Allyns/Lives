@@ -1,11 +1,14 @@
 # Lives
-正在开发中....
 
 现有功能：
 图书
 翻译
 音乐
 视频
+
+# 效果图
+<img src="https://github.com/Allyns/twomarket/blob/master/market.gif" width="320" />
+
 
 使用技术：
 
