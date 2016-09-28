@@ -17,10 +17,6 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class SettingsFragment extends Fragment {
-
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
-
     public static SettingsFragment newInstance() {
         SettingsFragment fragment = new SettingsFragment();
         return fragment;
@@ -32,7 +28,6 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_settings, container, false);
         ButterKnife.bind(this, v);
-        toolbar.setTitle("设置");
         return v;
     }
 

@@ -13,11 +13,9 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.allyn.lives.R;
 import com.allyn.lives.activity.music.MusicPlayActivivy;
-import com.allyn.lives.adapter.MusicListAdapter;
 import com.allyn.lives.adapter.SortAdapter;
 import com.allyn.lives.bean.MusicBean;
 import com.allyn.lives.events.MusicBeamEvent;
@@ -157,33 +155,34 @@ public class MusicLocalListFragment extends BaseFragment {
 
                     @Override
                     public void onNext(List<MusicBean> musicBeen) {
-                        been = musicBeen;
-                        List<SortModel> mSortList = filledData(initData());
-                        Collections.sort(mSortList, pinyinComparator);
-                        adapter = new SortAdapter(getActivity(), mSortList);
-                        // 根据a-z进行排序源数据
-                        mListView.setAdapter(adapter);
-                        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
-                            @Override
-                            public void onScrollStateChanged(AbsListView view, int scrollState) {
-                                if (scrollState == SCROLL_STATE_FLING || scrollState == SCROLL_STATE_TOUCH_SCROLL){
-                                    dialog.setVisibility(View.VISIBLE);
-                                }else{
-                                    dialog.setVisibility(View.GONE);
+                        if (musicBeen.size()!=0){
+                            been = musicBeen;
+                            List<SortModel> mSortList = filledData(initData());
+                            Collections.sort(mSortList, pinyinComparator);
+                            adapter = new SortAdapter(getActivity(), mSortList);
+                            // 根据a-z进行排序源数据
+                            mListView.setAdapter(adapter);
+                            mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+                                @Override
+                                public void onScrollStateChanged(AbsListView view, int scrollState) {
+                                    if (scrollState == SCROLL_STATE_FLING || scrollState == SCROLL_STATE_TOUCH_SCROLL){
+                                        dialog.setVisibility(View.VISIBLE);
+                                    }else{
+                                        dialog.setVisibility(View.GONE);
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                                String letter = ((SortModel)adapter.getItem(firstVisibleItem)).getSortLetters();
-                                if(letter != null && !letter.equals("") && sidrbar.mListViewScrollAble){
-                                    sidrbar.setChoosed(letter);
-                                    dialog.setText(letter);
+                                @Override
+                                public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                                    String letter = ((SortModel)adapter.getItem(firstVisibleItem)).getSortLetters();
+                                    if(letter != null && !letter.equals("") && sidrbar.mListViewScrollAble){
+                                        sidrbar.setChoosed(letter);
+                                        dialog.setText(letter);
+                                    }
                                 }
-                            }
-                        });
-                        getMsg();
-
+                            });
+                            getMsg();
+                        }
                     }
                 });
     }

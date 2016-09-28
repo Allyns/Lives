@@ -21,8 +21,7 @@ import butterknife.ButterKnife;
  */
 public class MusicLocalFragment extends BaseFragment {
 
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
+
     @Bind(R.id.tablayout)
     TabLayout mTabLayout;
     @Bind(R.id.viewpager)
@@ -39,7 +38,6 @@ public class MusicLocalFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_music_tab, container, false);
         ButterKnife.bind(this, v);
-        toolbar.setTitle("音乐");
         initView();
         return v;
     }

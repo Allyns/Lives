@@ -1,6 +1,5 @@
 package com.allyn.lives.fragment.books;
 
-
 import android.support.v4.app.Fragment;
 import android.view.ViewGroup;
 

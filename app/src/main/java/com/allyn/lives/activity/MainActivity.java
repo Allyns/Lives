@@ -11,6 +11,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -34,7 +36,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private boolean isok = true;
-
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
     @Bind(R.id.drawer_layout)
     DrawerLayout drawer;
     @Bind(R.id.nav_view)
@@ -67,17 +70,19 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private void initView() {
 
-//        setSupportActionBar(toolbar);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.setDrawerListener(toggle);
-//        toggle.syncState();
+        setSupportActionBar(toolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, BooksMainFragment.newInstance()).commitAllowingStateLoss();
 
         setUpBottomNavigationBar();
+
+        toolbar.setTitle("图书");
     }
 
     @Override
@@ -103,11 +108,17 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         int id = item.getItemId();
         if (id == R.id.nav_gallery) {
             fragment = BooksMainFragment.newInstance();
+            toolbar.setTitle("图书");
+
         } else if (id == R.id.nav_camera) {
             fragment = MusicLocalFragment.newInstance();
+            toolbar.setTitle("音乐");
+
             bottomLayout.setVisibility(View.GONE);
         } else if (id == R.id.nav_manage) {
             fragment = TranslationFragment.newInstance();
+            toolbar.setTitle("翻译");
+
             bottomLayout.setVisibility(View.GONE);
         }
 //        else if (id == R.id.nav_slideshow) {
@@ -120,6 +131,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             return true;
         } else if (id == R.id.nav_send) {
             fragment = SettingsFragment.newInstance();
+            toolbar.setTitle("设置");
+
             bottomLayout.setVisibility(View.GONE);
         }
         getSupportFragmentManager()
@@ -140,8 +153,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     public void setUpBottomNavigationBar() {
-        bottomLayout.addTab(R.mipmap.ic_book_default, getResources().getString(R.string.classify), MainApp.getContexts().getResources().getColor(R.color.colorPrimary));
-        bottomLayout.addTab(R.drawable.ic_settings, getResources().getString(R.string.recommend), MainApp.getContexts().getResources().getColor(R.color.colorAccent));
+        bottomLayout.addTab(R.drawable.ic_classfiy, getResources().getString(R.string.classify), MainApp.getContexts().getResources().getColor(R.color.colorPrimary));
+        bottomLayout.addTab(R.drawable.ic_book_remove, getResources().getString(R.string.recommend), MainApp.getContexts().getResources().getColor(R.color.colorAccent));
         bottomLayout.setOnTabListener(new BottomNavigationBar.TabListener() {
             @Override
             public void onSelected(BottomBarTab tab, int position) {

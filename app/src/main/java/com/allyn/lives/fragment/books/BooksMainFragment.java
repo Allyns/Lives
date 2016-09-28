@@ -25,8 +25,7 @@ import butterknife.ButterKnife;
  */
 public class BooksMainFragment extends BaseFragment {
 
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
+
     @Bind(R.id.tablayout)
     TabLayout mTabLayout;
     @Bind(R.id.viewpager)
@@ -43,7 +42,6 @@ public class BooksMainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment__img_tab, container, false);
         ButterKnife.bind(this, v);
-        toolbar.setTitle("图书");
         initView();
         return v;
     }

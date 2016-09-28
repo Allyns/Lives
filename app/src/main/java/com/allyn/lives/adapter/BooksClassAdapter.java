@@ -21,7 +21,7 @@ public class BooksClassAdapter extends RecyclerArrayAdapter<BooksClassifyBean.Tn
 
     @Override
     public BaseViewHolder OnCreateViewHolder(ViewGroup parent, int viewType) {
-        return new BooksClassifyTipHolder(parent);
+            return new BooksClassifyTipHolder(parent);
     }
 
     @Override

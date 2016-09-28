@@ -33,8 +33,7 @@ public class TranslationFragment extends BaseFragment {
         TranslationFragment translationFragment = new TranslationFragment();
         return translationFragment;
     }
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
+
     @Bind(R.id.content)
     EditText mContent;
     @Bind(R.id.submit)
@@ -49,7 +48,6 @@ public class TranslationFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_translation, container, false);
         ButterKnife.bind(this, v);
-        toolbar.setTitle("翻译");
         ActionListener();
         return v;
     }

@@ -46,7 +46,6 @@ public class BooksClassifyFragmentPresenter extends com.jude.beam.expansion.Beam
             public void onNext(BooksClassifyBean imageClassifyBean) {
                 imageclassify = imageClassifyBean;
                 adapter.clear();
-
                 adapter.addAll(imageClassifyBean.getTngou());
             }
 

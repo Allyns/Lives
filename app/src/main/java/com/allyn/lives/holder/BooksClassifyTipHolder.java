@@ -36,13 +36,11 @@ public class BooksClassifyTipHolder extends BaseViewHolder<BooksClassifyBean.Tng
         mClassityName = $(R.id.tvClassifyName);
         btnMore = $(R.id.btnMore);
         recyclerView = $(R.id.recycler);
-
         adapter = new BooksClassItemAdapter(getContext());
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setErrorView(R.layout.error_layout);
         recyclerView.setProgressView(R.layout.progress_layout);
         recyclerView.setAdapterWithProgress(adapter);
-
     }
 
     @Override
@@ -62,7 +60,7 @@ public class BooksClassifyTipHolder extends BaseViewHolder<BooksClassifyBean.Tng
             }
         });
 
-        BooksModel.getBooksList(new Random().nextInt(Config.random_size), Config.classify_size, Id, new Subscriber<BooksBean>() {
+        BooksModel.getBooksList(2, Config.classify_size, Id, new Subscriber<BooksBean>() {
             @Override
             public void onNext(BooksBean imageBean) {
                 adapter.clear();
