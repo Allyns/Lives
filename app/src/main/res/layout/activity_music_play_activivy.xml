@@ -85,7 +85,7 @@
             android:orientation="vertical">
 
 
-            <com.allyn.lives.view.widgets.CircleImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageView3"
                 android:layout_width="230dp"
                 android:layout_height="230dp"
@@ -95,6 +95,9 @@
                 android:layout_marginTop="46dp"
                 android:foreground="?selectableItemBackground"
                 android:scaleType="centerCrop"
+                app:border_color="@android:color/white"
+                app:border_width="2dp"
+                app:layout_behavior=".AvatarImageBehavior"
                 android:src="@drawable/ic_music" />
 
             <RelativeLayout

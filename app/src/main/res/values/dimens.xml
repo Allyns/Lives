@@ -53,5 +53,7 @@
     <dimen name="btn_download_width">56dp</dimen>
     <dimen name="btn_download_height">27dp</dimen>
     <dimen name="btn_download_size">12dp</dimen>
-
+    <dimen name="image_final_width">32dp</dimen>
+    <dimen name="image_width">110dp</dimen>
+    <dimen name="title_margin">20dp</dimen>
 </resources>

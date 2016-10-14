@@ -35,7 +35,9 @@
         <service
             android:name=".service.MusicService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".activity.ConstMainActivity"></activity>
     </application>
 
 </manifest>

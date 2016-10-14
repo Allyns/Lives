@@ -27,7 +27,8 @@
 
     <string name="brief">简介</string>
 
-
+    <string name="person_name">孙骁骁</string>
+    <string name="person_title">27岁 / 168cm / 本科</string>
 
     <string name="main_activity_center_content">@string/app_name</string>
     <string name="enter">确认</string>

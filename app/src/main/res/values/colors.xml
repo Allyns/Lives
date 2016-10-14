@@ -3,7 +3,7 @@
     <color name="colorPrimary">#e91e63</color>
     <color name="colorPrimaryDark">#c2185b</color>
     <color name="colorAccent">#FF4081</color>
-
+    <color name="bg_red_f">#FFFA7171</color>
     <color name="DarkcolorPrimary">#545454</color>
     <color name="DarkPrimaryDark">#3d3d3d</color>
     <color name="DarkTextTitleColor">#cccccc</color>
