@@ -13,6 +13,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.allyn.lives.R;
 import com.allyn.lives.activity.music.MusicPlayActivivy;
@@ -259,6 +260,7 @@ public class MusicLocalListFragment extends BaseFragment {
                         bundle.putInt(Config.position, index);
                         intent.putExtra(Config.bunder, bundle);
                         getActivity().startService(intent);
+                        getActivity().startActivity(new Intent(getActivity(), MusicPlayActivivy.class));
                     }
                 }
             }

@@ -46,6 +46,7 @@ public class MusicLikePresenter extends BeamListFragmentPresenter<MusicLocalLike
     @Override
     public void onRefresh() {
         super.onRefresh();
+        getAdapter().clear();
         musicBean = MainApp.getLiteOrm().query(MusicBean.class);
         Collections.reverse(musicBean);
         getAdapter().addAll(musicBean);
