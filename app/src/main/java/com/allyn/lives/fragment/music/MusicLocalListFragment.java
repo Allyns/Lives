@@ -219,9 +219,6 @@ public class MusicLocalListFragment extends BaseFragment {
     }
 
     private void listener() {
-
-
-
         //设置右侧触摸监听
         sidrbar.setOnTouchingLetterChangedListener(new SlideLinerLayout.OnTouchingLetterChangedListener() {
 
@@ -260,7 +257,6 @@ public class MusicLocalListFragment extends BaseFragment {
                         bundle.putInt(Config.position, index);
                         intent.putExtra(Config.bunder, bundle);
                         getActivity().startService(intent);
-                        getActivity().startActivity(new Intent(getActivity(), MusicPlayActivivy.class));
                     }
                 }
             }

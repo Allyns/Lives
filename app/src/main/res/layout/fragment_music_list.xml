@@ -1,81 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:clickable="true">
 
-        <com.allyn.lives.view.widgets.RefreshListView
-            android:id="@+id/lv_sort"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center"
-            android:divider="@null" />
+    <com.allyn.lives.view.widgets.RefreshListView
+        android:id="@+id/lv_sort"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="24dp"
+        android:background="@color/white_f"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white_e" />
 
         <TextView
-            android:id="@+id/dialog"
-            android:layout_width="80.0dip"
-            android:layout_height="80.0dip"
-            android:layout_gravity="center"
-            android:background="@drawable/show_head_toast_bg"
-            android:gravity="center"
-            android:textColor="#ffffffff"
-            android:textSize="30.0dip"
-            android:visibility="invisible" />
+            android:id="@+id/tvCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="47dp"
+            android:layout_marginRight="47dp"
+            android:text="aaaaaaaa" />
+
+        <TextView
+            android:id="@+id/tvMusicNmae"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="19dp"
+            android:text="aaaaaaaa" />
+
+        <TextView
+            android:id="@+id/tvAuthorName"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/tvMusicNmae"
+            android:layout_toRightOf="@+id/tvMusicNmae"
+            android:text="aaaaaaaa" />
+    </RelativeLayout>
 
 
-        <com.allyn.lives.view.widgets.SlideLinerLayout
-            android:id="@+id/sidrbar"
-            android:layout_width="22.0dip"
-            android:layout_height="fill_parent"
-            android:layout_gravity="right|center"
-            android:orientation="vertical" />
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="bottom"
-            android:background="@color/white_f"
-            android:foreground="?selectableItemBackground"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/white_e" />
-
-            <TextView
-                android:id="@+id/tvMusicNmae"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tvAuthorName"
-                android:layout_marginEnd="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_toLeftOf="@+id/tvAuthorName"
-                android:layout_toStartOf="@+id/tvAuthorName" />
-
-            <TextView
-                android:id="@+id/tvAuthorName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/tvCode"
-                android:layout_centerHorizontal="true" />
-
-            <TextView
-                android:id="@+id/tvCode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="47dp"
-                android:layout_marginRight="47dp" />
-        </RelativeLayout>
-    </FrameLayout>
-
-</LinearLayout>
+    <TextView
+        android:id="@+id/dialog"
+        android:layout_width="80.0dip"
+        android:layout_height="80.0dip"
+        android:layout_gravity="center"
+        android:background="@drawable/show_head_toast_bg"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="30.0dip"
+        android:visibility="invisible" />
+    <com.allyn.lives.view.widgets.SlideLinerLayout
+        android:id="@+id/sidrbar"
+        android:layout_width="22.0dip"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:layout_marginBottom="65dp"
+        android:orientation="vertical" />
+</FrameLayout>

@@ -62,8 +62,6 @@ public class MusicPlayActivivy extends BaseActivity {
     ImageButton mLike;
     @Bind(R.id.btnCode)
     ImageButton btnCode;
-    @Bind(R.id.btnDeleteMusic)
-    ImageButton btnDeleteMusic;
     @Bind(R.id.btnMore)
     ImageButton btnMore;
 
@@ -115,8 +113,6 @@ public class MusicPlayActivivy extends BaseActivity {
         });
 
         listener();
-
-
     }
 
 
@@ -147,9 +143,7 @@ public class MusicPlayActivivy extends BaseActivity {
                 mUpdateTimeFlag = true;
                 new TimeThread().start();
             }
-
             UpdateButton(media.isPlaying());
-
         }
 
         if (PlayMainage.getList() == null) {
@@ -185,7 +179,6 @@ public class MusicPlayActivivy extends BaseActivity {
         }
 
     }
-
 
     class TimeThread extends Thread {
         @Override
@@ -223,7 +216,6 @@ public class MusicPlayActivivy extends BaseActivity {
             mPlay.setBackgroundResource(R.mipmap.ic_pause);
         }
     }
-
 
     private void listener() {
         btnCode.setOnClickListener(new View.OnClickListener() {
@@ -288,38 +280,38 @@ public class MusicPlayActivivy extends BaseActivity {
                 builder.setNegativeButton("确定", null).show();
             }
         });
-        btnDeleteMusic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MusicPlayActivivy.this);
-                builder.setTitle("提示");
-                builder.setMessage("确定删除吗?");
-                //取消删除
-                builder.setNegativeButton("取消", new android.content.DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                //删除
-                builder.setPositiveButton("删除", new android.content.DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        boolean isDeleteOk = PlayMainage.delete(MusicPlayActivivy.this, music);
-//                        boolean isDeleteOk = PlayMainage.deleteMusic(music.getFileData());
-                        if (isDeleteOk) {
-                            Snackbar.make(btnDeleteMusic, "删除功能有些Bug，后期修复", Snackbar.LENGTH_SHORT).show();
-                            RxBus.getDefault().post(new MusicBeamEvent(mPosition));
-                            UpdatePlay(true);
-                        } else {
-                            Snackbar.make(btnDeleteMusic, "删除失败", Snackbar.LENGTH_SHORT).show();
-                        }
-                        dialog.dismiss();
-                    }
-                });
-                builder.show();
-            }
-        });
+//        btnDeleteMusic.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                AlertDialog.Builder builder = new AlertDialog.Builder(MusicPlayActivivy.this);
+//                builder.setTitle("提示");
+//                builder.setMessage("确定删除吗?");
+//                //取消删除
+//                builder.setNegativeButton("取消", new android.content.DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//                //删除
+//                builder.setPositiveButton("删除", new android.content.DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        boolean isDeleteOk = PlayMainage.delete(MusicPlayActivivy.this, music);
+////                        boolean isDeleteOk = PlayMainage.deleteMusic(music.getFileData());
+//                        if (isDeleteOk) {
+//                            Snackbar.make(btnDeleteMusic, "删除功能有些Bug，后期修复", Snackbar.LENGTH_SHORT).show();
+//                            RxBus.getDefault().post(new MusicBeamEvent(mPosition));
+//                            UpdatePlay(true);
+//                        } else {
+//                            Snackbar.make(btnDeleteMusic, "删除失败", Snackbar.LENGTH_SHORT).show();
+//                        }
+//                        dialog.dismiss();
+//                    }
+//                });
+//                builder.show();
+//            }
+//        });
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -363,15 +355,7 @@ public class MusicPlayActivivy extends BaseActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-//                //推送时暂停
-//                if (PlayMainage.mediaPlayer != null) {
-//                    if (PlayMainage.mediaPlayer.isPlaying()) {
-//                        PlayMainage.pause();
-//                        state = true;
-//                    } else {
-//                        state = false;
-//                    }
-//                }
+
             }
 
             @Override
@@ -399,10 +383,6 @@ public class MusicPlayActivivy extends BaseActivity {
             }
         }
         return false;
-    }
-
-    public void getPlayCode() {
-
     }
 
     public void UpdatePlay(boolean isNext) {
@@ -436,6 +416,12 @@ public class MusicPlayActivivy extends BaseActivity {
         tvEnd.setText(PlayMainage.formatTime(PlayMainage.mediaPlayer.getDuration()));
 
         mPlay.setBackgroundResource(R.mipmap.ic_play);
+        boolean isLike = IsLike(music);
+        if (isLike) {
+            mLike.setBackgroundResource(R.mipmap.ic_like_white);
+        } else {
+            mLike.setBackgroundResource(R.mipmap.ic_unlike_white);
+        }
     }
 
 
