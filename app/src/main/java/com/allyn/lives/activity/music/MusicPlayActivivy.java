@@ -2,19 +2,15 @@ package com.allyn.lives.activity.music;
 
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,11 +25,9 @@ import com.allyn.lives.utils.Config;
 import com.allyn.lives.utils.RxBus;
 import com.allyn.lives.utils.TextFormater;
 import com.allyn.lives.utils.blur.BlurTransformation;
-import com.litesuits.orm.LiteOrm;
 import com.litesuits.orm.db.assit.WhereBuilder;
 
 
-import java.io.File;
 import java.util.List;
 import java.util.Random;
 
