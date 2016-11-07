@@ -122,7 +122,7 @@ public class MusicLocalListFragment extends BaseFragment {
             relativeLayout.setVisibility(View.VISIBLE);
         }
         sidrbar.setTextDialog(dialog);
-        tvAuthorName.setText(PlayMainage.getList().get(position).getArtist());
+        tvAuthorName.setText(PlayMainage.getList().get(position).getName());
         MediaPlayer mediaPlayer = PlayMainage.mediaPlayer;
         if (mediaPlayer != null) {
             if (mediaPlayer.isPlaying()) {

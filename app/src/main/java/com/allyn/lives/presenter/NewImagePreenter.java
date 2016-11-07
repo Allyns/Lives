@@ -18,7 +18,7 @@ import rx.Subscriber;
 /**
  * Created by Administrator on 2016/6/27.
  */
-public class NewImagePreenter extends BeamListFragmentPresenter<RecommendBooksFragment, BooksBean.ListEntity> implements SwipeRefreshLayout.OnRefreshListener{
+public class NewImagePreenter extends BeamListFragmentPresenter<RecommendBooksFragment, BooksBean.ListEntity> implements SwipeRefreshLayout.OnRefreshListener {
 
     @Override
     protected void onCreate(@NonNull RecommendBooksFragment view, Bundle savedState) {
@@ -47,7 +47,7 @@ public class NewImagePreenter extends BeamListFragmentPresenter<RecommendBooksFr
 
 
     public void getData() {
-        BooksModel.getBooksList(2, Config.size,1, new Subscriber<BooksBean>() {
+        BooksModel.getBooksList(new Random().nextInt(3), Config.size, new Random().nextInt(9), new Subscriber<BooksBean>() {
             @Override
             public void onCompleted() {
 
