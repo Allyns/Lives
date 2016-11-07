@@ -27,7 +27,6 @@ import com.allyn.lives.utils.TextFormater;
 import com.allyn.lives.utils.blur.BlurTransformation;
 import com.litesuits.orm.db.assit.WhereBuilder;
 
-
 import java.util.List;
 import java.util.Random;
 
@@ -409,7 +408,7 @@ public class MusicPlayActivivy extends BaseActivity {
         tvAuthorName.setText(music.getArtist());
         tvEnd.setText(PlayMainage.formatTime(PlayMainage.mediaPlayer.getDuration()));
 
-        mPlay.setBackgroundResource(R.mipmap.ic_play);
+        UpdateButton(true);
         boolean isLike = IsLike(music);
         if (isLike) {
             mLike.setBackgroundResource(R.mipmap.ic_like_white);
