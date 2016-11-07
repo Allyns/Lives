@@ -20,6 +20,7 @@ import com.allyn.lives.activity.music.MusicPlayActivivy;
 import com.allyn.lives.adapter.SortAdapter;
 import com.allyn.lives.bean.MusicBean;
 import com.allyn.lives.events.MusicBeamEvent;
+import com.allyn.lives.events.MusicCodeEvent;
 import com.allyn.lives.fragment.base.BaseFragment;
 import com.allyn.lives.manage.PlayMainage;
 import com.allyn.lives.model.MusicModel;
@@ -67,8 +68,7 @@ public class MusicLocalListFragment extends BaseFragment {
 
     @Bind(R.id.tvAuthorName)
     TextView tvAuthorName;
-    @Bind(R.id.tvMusicNmae)
-    TextView tvMusicNmae;
+
     @Bind(R.id.tvCode)
     TextView tvCode;
 
@@ -103,6 +103,12 @@ public class MusicLocalListFragment extends BaseFragment {
                 getMsg();
             }
         });
+        RxBus.getDefault().toObserverable(MusicCodeEvent.class).subscribe(new Action1<MusicCodeEvent>() {
+            @Override
+            public void call(MusicCodeEvent musicBeamEvent) {
+                getMsg();
+            }
+        });
 
         return view;
     }
@@ -117,7 +123,6 @@ public class MusicLocalListFragment extends BaseFragment {
         }
         sidrbar.setTextDialog(dialog);
         tvAuthorName.setText(PlayMainage.getList().get(position).getArtist());
-        tvMusicNmae.setText(PlayMainage.getList().get(position).getName());
         MediaPlayer mediaPlayer = PlayMainage.mediaPlayer;
         if (mediaPlayer != null) {
             if (mediaPlayer.isPlaying()) {

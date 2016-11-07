@@ -19,6 +19,7 @@ import com.allyn.lives.activity.base.BaseActivity;
 import com.allyn.lives.app.MainApp;
 import com.allyn.lives.bean.MusicBean;
 import com.allyn.lives.events.MusicBeamEvent;
+import com.allyn.lives.events.MusicCodeEvent;
 import com.allyn.lives.manage.PlayMainage;
 import com.allyn.lives.service.MusicService;
 import com.allyn.lives.utils.Config;
@@ -407,7 +408,7 @@ public class MusicPlayActivivy extends BaseActivity {
         tvMusicNmae.setText(music.getName());
         tvAuthorName.setText(music.getArtist());
         tvEnd.setText(PlayMainage.formatTime(PlayMainage.mediaPlayer.getDuration()));
-
+        RxBus.getDefault().post(new MusicCodeEvent());
         UpdateButton(true);
         boolean isLike = IsLike(music);
         if (isLike) {

@@ -14,10 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="55dp"
         android:layout_marginRight="24dp"
-        android:background="@color/white_f"
-        android:visibility="gone">
+        android:background="@color/white_e">
 
         <View
             android:layout_width="match_parent"
@@ -31,30 +30,22 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
             android:layout_marginEnd="47dp"
             android:layout_marginRight="47dp"
-            android:text="aaaaaaaa" />
-
-        <TextView
-            android:id="@+id/tvMusicNmae"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="19dp"
             android:text="aaaaaaaa" />
 
         <TextView
             android:id="@+id/tvAuthorName"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_toEndOf="@+id/tvMusicNmae"
-            android:layout_toRightOf="@+id/tvMusicNmae"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/tvCode"
             android:text="aaaaaaaa" />
     </RelativeLayout>
 
@@ -69,6 +60,7 @@
         android:textColor="#ffffffff"
         android:textSize="30.0dip"
         android:visibility="invisible" />
+
     <com.allyn.lives.view.widgets.SlideLinerLayout
         android:id="@+id/sidrbar"
         android:layout_width="22.0dip"
