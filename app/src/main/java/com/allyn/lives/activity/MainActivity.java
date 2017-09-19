@@ -24,7 +24,6 @@ import com.allyn.lives.fragment.TranslationFragment;
 import com.allyn.lives.fragment.books.BooksMainFragment;
 import com.allyn.lives.fragment.books.RecommendBooksFragment;
 import com.allyn.lives.fragment.music.MusicLocalFragment;
-import com.allyn.lives.fragment.video.TVFragment;
 import com.allyn.lives.service.MusicService;
 import com.allyn.lives.view.bottontab.BottomBarTab;
 import com.allyn.lives.view.bottontab.BottomNavigationBar;
@@ -61,11 +60,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private void setThere() {
         isok = getSharedPreferences("config", MODE_PRIVATE).getBoolean("isUserDarkMode", false);
-//        if (isok) {
-        setTheme(R.style.AppTheme);
-//        } else {
-//            setTheme(R.style.Mytheme);
-//        }
+        if (isok) {
+            setTheme(R.style.AppTheme);
+        } else {
+            setTheme(R.style.Mytheme);
+        }
     }
 
     private void initView() {
