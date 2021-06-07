@@ -8,17 +8,11 @@
 
 # 效果图
 <img src="https://github.com/Allyns/Lives/blob/master/img/54F171BC28ED5C6A4AEC296B3FCF19E1.png" width="320" />
-
 <img src="https://github.com/Allyns/Lives/blob/master/img/71C85EC481B47886E842013DE4BC677B.png" width="320" />
-
 <img src="https://github.com/Allyns/Lives/blob/master/img/7477E4DAAF2AB3AEB408BB7E21EAA9A9.png" width="320" />
-
 <img src="https://github.com/Allyns/Lives/blob/master/img/7505C39DFA9E3C54B6272A749CDA5125.png" width="320" />
-
 <img src="https://github.com/Allyns/Lives/blob/master/img/92A2B8D2C1878D9FBCBC2C0BCBFE45BE.png" width="320" />
-
 <img src="https://github.com/Allyns/Lives/blob/master/img/98AE2857147B9DC2A130B9C821D6E601.png" width="320" />
-
 <img src="https://github.com/Allyns/Lives/blob/master/img/C7075614E4A7DD3AD34F62426A557E9B.png" width="320" />
 
 
